@@ -1,0 +1,6 @@
+HOW TO BUILD LINPHONE / FLEXISIP USING YOCTO / BITBAKE
+
+- Edit the conf/bblayers.conf file in your build directory and append to the BBLAYERS list the path to the meta-bc directory
+- Edit the conf/local.cong file in your build directory and add the following line:
+IMAGE_INSTALL_append = "linphone flexisip"
+- Now build your image normally (bitbake core-image-minimal or other)
