@@ -1,6 +1,6 @@
 require linphone.inc
 
-SRCREV = "77df52a71ad060c7995221e097dc32deddfc57c1"
+SRCREV = "fa1c36dddb8925277e9832cdfacd8d4c87d2e2d1"
 SRC_URI = "gitsm://git.linphone.org/linphone.git"
 PV = "git_${SRCREV}"
 

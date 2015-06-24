@@ -1,6 +1,6 @@
 require belle-sip.inc
 
-SRCREV = "5286198ae87727e6bc69fecd95c5a00df4c6199a"
+SRCREV = "dd2d1ca8b3f56044f9ff85f0647184204ae382b2"
 SRC_URI = "git://git.linphone.org/belle-sip.git;commit=${SRCREV}"
 PV = "git_${SRCREV}"
 
