@@ -7,6 +7,10 @@ PN = "libsofia-sip-ua"
 PROVIDES = "libsofia-sip-ua-bc"
 S = "${WORKDIR}/git"
 
+PACKAGES += "${PN}-common"
+
+FILES_${PN}-common = "${datadir}/sofia-sip/tag_dll.awk ${datadir}/sofia-sip/msg_parser.awk"
+
 inherit autotools pkgconfig lib_package
 
 do_autoreconf () {
