@@ -1,19 +1,20 @@
 DESCRIPTION = "SSL/TLS library"
 LICENSE = "GPLv2"
 HOMEPAGE = "https://tls.mbed.org/"
+SECTION = "libs/network"
 
-inherit pkgconfig
-
-EXTRA_OEMAKE += " SHARED=1"
-
-PROVIDES = "polarssl polarssl-dev polarssl-utils"
+PN = "libpolarssl"
+PROVIDES = "${PN}-bc ${PN}-bc-dev ${PN}-utils"
 S = "${WORKDIR}/git"
-ALLOW_EMPTY_${PN} = "1"
 
-PACKAGES += "${PN}-utils"
+EXTRA_OECONF += " --enable-shared"
 
-MAKE_DESTDIR = "DESTDIR=${D}/${prefix}"
+PACKAGES += " ${PN}-bc-dev ${PN}-utils"
 
-FILES_${PN} += "${sharedlibdir}/*${SOLIBSDEV}"
-FILES_${PN}-dev += "!${sharedlibdir}/*${SOLIBSDEV}"
 FILES_${PN}-utils += "${bindir}/polarssl_*"
+
+inherit autotools pkgconfig
+
+do_autoreconf () {
+    ./autogen.sh
+}

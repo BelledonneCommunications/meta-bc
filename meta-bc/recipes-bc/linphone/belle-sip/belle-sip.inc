@@ -4,7 +4,7 @@ HOMEPAGE = "http://www.linphone.org/technical-corner/belle-sip/overview"
 SECTION = "libs/network"
 
 PN = "libbellesip"
-DEPENDS = "polarssl-dev antlr3c"
+DEPENDS = "libpolarssl-bc antlr3c"
 PROVIDES = "${PN} ${PN}-dev"
 S = "${WORKDIR}/git"
 

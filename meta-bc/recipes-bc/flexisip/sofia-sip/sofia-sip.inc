@@ -4,7 +4,8 @@ HOMEPAGE = "http://sofia-sip.sourceforge.net/"
 SECTION = "libs/network"
 
 PN = "libsofia-sip-ua"
-PROVIDES = "libsofia-sip-ua-bc"
+DEPENDS = "openssl"
+PROVIDES = "${PN}-bc"
 S = "${WORKDIR}/git"
 
 PACKAGES += "${PN}-common"

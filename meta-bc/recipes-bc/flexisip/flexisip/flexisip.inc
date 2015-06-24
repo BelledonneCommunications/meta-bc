@@ -9,4 +9,8 @@ S = "${WORKDIR}/git"
 
 EXTRA_OECONF = "--enable-odbc=no --enable-redis=no --enable-protobuf=no --enable-transcoder=no"
 
-inherit autotools pkgconfig gettext
+INITSCRIPT_PACKAGES = "flexisip"
+INITSCRIPT_NAME = "flexisip"
+INITSCRIPT_PARAMS = "defaults"
+
+inherit autotools pkgconfig gettext update-rc.d
