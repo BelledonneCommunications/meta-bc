@@ -1,6 +1,6 @@
 require ortp.inc
 
-PR = "$(INC_PR).0"
+PR = "${INC_PR}.0"
 
 SRCREV = "187b6881a66152daeb06423f2cda00a6e6ae0506"
 SRC_URI = "git://git.linphone.org/ortp.git"

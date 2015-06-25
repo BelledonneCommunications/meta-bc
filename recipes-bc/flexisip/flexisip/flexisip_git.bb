@@ -1,6 +1,6 @@
 require flexisip.inc
 
-PR = "$(INC_PR).0"
+PR = "${INC_PR}.0"
 
 SRCREV = "dd02e9e2a386178f1976259954b9ce7ba9f7118a"
 SRC_URI = "git://git.linphone.org/flexisip.git"

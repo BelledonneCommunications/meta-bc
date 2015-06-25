@@ -1,6 +1,6 @@
 require srtp.inc
 
-PR = "$(INC_PR).0"
+PR = "${INC_PR}.0"
 
 SRCREV = "37448b2aebeb5e9bd2d39d3a82f0721123cdd4a2"
 SRC_URI = "git://git.linphone.org/srtp.git"
