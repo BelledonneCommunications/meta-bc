@@ -8,7 +8,7 @@ INC_PR = "r0"
 PN = "polarssl-bc"
 PROVIDES = "libpolarssl-bc"
 S = "${WORKDIR}/git"
-ALLOW_EMPTY="1"
+ALLOW_EMPTY_${PN}="1"
 
 EXTRA_OECONF += " --enable-shared"
 
