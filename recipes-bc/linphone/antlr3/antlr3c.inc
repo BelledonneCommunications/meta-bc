@@ -1,6 +1,7 @@
 DESCRIPTION = "Linphone version of antlr3"
 LICENSE = "BSD"
 HOMEPAGE = "http://www.antlr3.org/"
+SECTION = "libs"
 
 INC_PR = "r0"
 

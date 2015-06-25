@@ -1,7 +1,7 @@
 DESCRIPTION = "Audio/video SIP-based IP phone (console edition)"
 LICENSE = "GPLv2"
 HOMEPAGE = "http://www.linphone.org/technical-corner/linphone/overview"
-SECTION = "x11/network"
+SECTION = "comm"
 
 INC_PR = "r0"
 
