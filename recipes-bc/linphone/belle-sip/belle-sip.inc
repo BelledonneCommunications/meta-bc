@@ -5,7 +5,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-DEPENDS = "polarssl-bc antlr3c"
+DEPENDS = "libpolarssl-bc libantlr3c-bc"
 PROVIDES = "libbellesip"
 S = "${WORKDIR}/git"
 

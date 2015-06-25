@@ -14,7 +14,7 @@ PACKAGES += " ${PN}-common"
 
 FILES_${PN}-common = "${datadir}/sofia-sip/tag_dll.awk ${datadir}/sofia-sip/msg_parser.awk"
 
-inherit autotools pkgconfig lib_package
+inherit autotools pkgconfig
 
 do_autoreconf () {
     ./autogen.sh

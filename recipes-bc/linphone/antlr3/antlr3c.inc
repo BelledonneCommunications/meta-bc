@@ -5,17 +5,17 @@ SECTION = "libs"
 
 INC_PR = "r0"
 
+PN = "antlr3c-bc"
+PROVIDES = "libantlr3c-bc"
 S = "${WORKDIR}/git/runtime/C"
-ALLOW_EMPTY_${PN} = "1"
 
-inherit autotools pkgconfig lib_package
+inherit autotools pkgconfig
 
-do_fetch_append() {
-    import os
-    os.system("autogen.sh")
+do_autoreconf() {
+	./autogen.sh
 }
 
 do_install_append() {
-    mkdir -p ${STAGING_DIR_HOST}/usr/share/java
-    cp ${S}/../../antlr-3.4-complete.jar ${STAGING_DIR_HOST}/usr/share/java/antlr.jar
+	mkdir -p ${STAGING_DIR_HOST}/usr/share/java
+	cp ${S}/../../antlr-3.4-complete.jar ${STAGING_DIR_HOST}/usr/share/java/antlr.jar
 }
