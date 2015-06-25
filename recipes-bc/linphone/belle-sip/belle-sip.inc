@@ -3,6 +3,8 @@ LICENSE = "GPLv2"
 HOMEPAGE = "http://www.linphone.org/technical-corner/belle-sip/overview"
 SECTION = "libs/network"
 
+INC_PR = "r0"
+
 PN = "libbellesip"
 DEPENDS = "libpolarssl-bc antlr3c"
 PROVIDES = "${PN} ${PN}-dev"

@@ -3,6 +3,8 @@ LICENSE = "LGPLv2.1"
 HOMEPAGE = "http://sofia-sip.sourceforge.net/"
 SECTION = "libs/network"
 
+INC_PR = "r0"
+
 PN = "libsofia-sip-ua"
 DEPENDS = "openssl"
 PROVIDES = "${PN}-bc"

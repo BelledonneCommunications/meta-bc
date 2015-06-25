@@ -3,6 +3,8 @@ LICENSE = "GPLv2"
 HOMEPAGE = "http://www.linphone.org/technical-corner/mediastreamer2/overview"
 SECTION = "libs/network"
 
+INC_PR = "r0"
+
 PN = "libmediastreamer2"
 DEPENDS = "intltool-native libortp-dev speex alsa-lib libvpx libv4l libav libsrtp"
 PROVIDES = "${PN} ${PN}-dev"

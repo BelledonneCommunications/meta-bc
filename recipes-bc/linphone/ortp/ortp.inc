@@ -3,6 +3,8 @@ LICENSE = "GPLv2"
 HOMEPAGE = "http://www.linphone.org/technical-corner/ortp/overview"
 SECTION = "libs/network"
 
+INC_PR = "r0"
+
 PN = "libortp"
 DEPENDS = ""
 PROVIDES = "${PN} ${PN}-dev"

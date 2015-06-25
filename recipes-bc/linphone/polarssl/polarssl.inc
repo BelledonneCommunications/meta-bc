@@ -3,6 +3,8 @@ LICENSE = "GPLv2"
 HOMEPAGE = "https://tls.mbed.org/"
 SECTION = "libs/network"
 
+INC_PR = "r0"
+
 PN = "libpolarssl"
 PROVIDES = "${PN}-bc ${PN}-bc-dev ${PN}-utils"
 S = "${WORKDIR}/git"

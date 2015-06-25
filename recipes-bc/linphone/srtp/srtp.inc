@@ -3,6 +3,8 @@ LICENSE = "BSD"
 HOMEPAGE = "http://srtp.sourceforge.net/srtp.html"
 SECTION = "libs/network"
 
+INC_PR = "r0"
+
 PN = "libsrtp"
 DEPENDS = ""
 PROVIDES = "${PN} ${PN}-dev"

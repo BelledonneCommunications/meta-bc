@@ -3,6 +3,8 @@ LICENSE = "GPLv2"
 HOMEPAGE = "http://www.linphone.org/technical-corner/linphone/overview"
 SECTION = "x11/network"
 
+INC_PR = "r0"
+
 DEPENDS = "libbellesip-dev libortp-dev libmediastreamer2-dev libxml2"
 PROVIDES = "${PN} ${PN}-dev"
 S = "${WORKDIR}/git"

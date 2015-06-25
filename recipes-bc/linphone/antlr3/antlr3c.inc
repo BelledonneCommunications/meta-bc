@@ -2,6 +2,8 @@ DESCRIPTION = "Linphone version of antlr3"
 LICENSE = "BSD"
 HOMEPAGE = "http://www.antlr3.org/"
 
+INC_PR = "r0"
+
 PROVIDES = "antlr3c"
 S = "${WORKDIR}/git/runtime/C"
 ALLOW_EMPTY_${PN} = "1"
