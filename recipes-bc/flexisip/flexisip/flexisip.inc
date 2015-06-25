@@ -6,7 +6,6 @@ SECTION = "x11/network"
 INC_PR = "r0"
 
 DEPENDS = "libsofia-sip-ua-bc libortp"
-PROVIDES = "flexisip"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = "--enable-odbc=no --enable-redis=no --enable-protobuf=no --enable-transcoder=no"

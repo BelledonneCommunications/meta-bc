@@ -5,9 +5,8 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-PN = "libmediastreamer2"
-DEPENDS = "intltool-native libortp-dev speex alsa-lib libvpx libv4l libav libsrtp"
-PROVIDES = "${PN} ${PN}-dev"
+DEPENDS = "intltool-native libortp speex alsa-lib libvpx libv4l libav libsrtp"
+PROVIDES += "libmediastreamer2"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = "--disable-glx --enable-xv=no --enable-x11=no"

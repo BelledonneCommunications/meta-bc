@@ -5,12 +5,12 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-PN = "libsofia-sip-ua"
+PN = "sofia-sip-ua-bc"
 DEPENDS = "openssl"
-PROVIDES = "${PN}-bc"
+PROVIDES = "libsofia-sip-ua-bc"
 S = "${WORKDIR}/git"
 
-PACKAGES += "${PN}-common"
+PACKAGES += " ${PN}-common"
 
 FILES_${PN}-common = "${datadir}/sofia-sip/tag_dll.awk ${datadir}/sofia-sip/msg_parser.awk"
 

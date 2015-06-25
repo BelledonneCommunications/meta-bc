@@ -5,9 +5,8 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-PN = "libbellesip"
-DEPENDS = "libpolarssl-bc antlr3c"
-PROVIDES = "${PN} ${PN}-dev"
+DEPENDS = "polarssl-bc antlr3c"
+PROVIDES = "libbellesip"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF += "--disable-strict --with-antlr=${STAGING_DIR_HOST}${layout_exec_prefix}/usr --with-polarssl=${STAGING_DIR_HOST}${layout_exec_prefix}/usr"

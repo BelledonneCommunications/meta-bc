@@ -5,9 +5,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-PN = "libortp"
-DEPENDS = ""
-PROVIDES = "${PN} ${PN}-dev"
+PROVIDES = "libortp"
 S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig

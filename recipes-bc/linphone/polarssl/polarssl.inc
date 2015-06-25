@@ -5,13 +5,13 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-PN = "libpolarssl"
-PROVIDES = "${PN}-bc ${PN}-bc-dev ${PN}-utils"
+PN = "polarssl-bc"
+PROVIDES = "libpolarssl-bc"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF += " --enable-shared"
 
-PACKAGES += " ${PN}-bc-dev ${PN}-utils"
+PACKAGES += " ${PN}-utils"
 
 FILES_${PN}-utils += "${bindir}/polarssl_*"
 

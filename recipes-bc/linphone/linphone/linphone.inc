@@ -5,8 +5,8 @@ SECTION = "x11/network"
 
 INC_PR = "r0"
 
-DEPENDS = "libbellesip-dev libortp-dev libmediastreamer2-dev libxml2"
-PROVIDES = "${PN} ${PN}-dev"
+DEPENDS = "libbellesip libortp libmediastreamer2 libxml2"
+PROVIDES = "liblinphone"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = "--without-readline --enable-external-mediastreamer=yes --enable-external-ortp=yes --enable-gtk_ui=no"

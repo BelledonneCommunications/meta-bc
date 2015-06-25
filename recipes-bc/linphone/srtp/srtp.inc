@@ -5,9 +5,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-PN = "libsrtp"
-DEPENDS = ""
-PROVIDES = "${PN} ${PN}-dev"
+PROVIDES = "libsrtp"
 S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
