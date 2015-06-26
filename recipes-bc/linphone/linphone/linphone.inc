@@ -33,3 +33,11 @@ FILES_${PN}-common = "\
 FILES_${PN}-utils = "${bindir}/test_ecc ${bindir}/test_lsd ${bindir}/xml2lpc_test ${bindir}/lpc2xml_test"
 
 inherit autotools pkgconfig gettext
+
+do_configure_prepend() {
+    #!/bin/sh
+    echo 'Deleting mediastreamer2 and oRTP'
+    rm -rf ${S}/mediastreamer2
+    rm -rf ${S}/oRTP
+    echo 'mediastreamer2 and oRTP have been removed'
+}
