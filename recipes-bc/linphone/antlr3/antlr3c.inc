@@ -8,6 +8,7 @@ INC_PR = "r0"
 PN = "antlr3c-bc"
 PROVIDES = "libantlr3c-bc"
 S = "${WORKDIR}/git/runtime/C"
+ALLOW_EMPTY_${PN}="1"
 
 inherit autotools pkgconfig
 
