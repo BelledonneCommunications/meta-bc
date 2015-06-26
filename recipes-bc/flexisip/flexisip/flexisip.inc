@@ -6,7 +6,7 @@ SECTION = "comm"
 INC_PR = "r0"
 
 DEPENDS = "libsofia-sip-ua-bc libortp"
-RDEPENDS = "lsb"
+RDEPENDS_${PN} = "lsb"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = "--enable-odbc=no --enable-redis=no --enable-protobuf=no --enable-transcoder=no"
