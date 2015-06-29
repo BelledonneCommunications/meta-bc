@@ -16,6 +16,7 @@ IMAGE_ROOTFS_EXTRA_SPACE="204800"
 src/gz all http://linphone.org/snapshots/ipk/all
 src/gz cortexa9hf-vfp-neon http://linphone.org/snapshots/ipk/cortexa9hf-vfp-neon
 src/gz cortexa9hf-vfp-neon-mx6qdl http://linphone.org/snapshots/ipk/cortexa9hf-vfp-neon-mx6qdl
+src/gz wandboard_solo http://linphone.org/snapshots/ipk/wandboard_solo
 - Run the following commands:
 $ opkg update
 $ opkg install linphone
