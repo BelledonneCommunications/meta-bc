@@ -4,10 +4,13 @@ HOW TO BUILD LINPHONE / FLEXISIP USING YOCTO / BITBAKE
 - Edit the conf/local.conf file in your build directory and add the following line:
 IMAGE_INSTALL_append = "linphone flexisip"
 - Now build your image normally (bitbake core-image-minimal or other)
-
+- You can also skip the two previous steps and only compile linphone or flexisip directly with bitbake (bitbake linphone; bitbake flexisip)
 
 HOW TO DOWNLOAD AND INSTALL LINPHONE / FLEXISIP USING BELLEDONNE COMMUNICATIONS IPK REPOSITORY
 
+- First make sure your image is built with opkg. To do so, add the following into the local.conf file in your fsl-<version>/ build/conf directory (and also add some free space for download/install ipk purposes):
+IMAGE_INSTALL_append = " opkg"
+IMAGE_ROOTFS_EXTRA_SPACE="204800"
 - Create the file in /etc/opkg/bc.conf in your hardware
 - Add the following into the file:
 src/gz all http://linphone.org/snapshots/ipk/all
