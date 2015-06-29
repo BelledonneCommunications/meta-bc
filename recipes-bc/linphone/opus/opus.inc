@@ -1,5 +1,5 @@
 DESCRIPTION = "Opus is a totally open, royalty-free, highly versatile audio codec"
-LICENSE = ""
+LICENSE = "BSD"
 HOMEPAGE = "http://www.opus-codec.org/"
 SECTION = "libs"
 

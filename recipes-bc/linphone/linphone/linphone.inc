@@ -12,7 +12,7 @@ S = "${WORKDIR}/git"
 PACKAGECONFIG ??= "sqlite zlib ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)}"
 PACKAGECONFIG[sqlite] = "--enable-msg-storage=yes, --enable-msg-storage=no, sqlite3"
 PACKAGECONFIG[zlib] = ", --disable-zlib, zlib"
-PACKAGECONFIG[x11] = "--enable-gtk_ui=yes, --enable-gtk_ui=no, gtk+"
+PACKAGECONFIG[x11] = "--enable-gtk_ui=yes, --enable-gtk_ui=no --disable-x11, gtk+"
 
 EXTRA_OECONF += " --without-readline --enable-external-mediastreamer=yes --enable-external-ortp=yes"
 INSANE_SKIP_${PN} += "dev-deps"
