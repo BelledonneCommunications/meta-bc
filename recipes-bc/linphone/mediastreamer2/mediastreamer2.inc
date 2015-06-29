@@ -5,11 +5,19 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-DEPENDS = "intltool-native libortp speex alsa-lib libvpx libv4l libav libsrtp-bc"
+DEPENDS = "intltool-native libortp speex alsa-lib libv4l"
 PROVIDES += "libmediastreamer2"
 S = "${WORKDIR}/git"
 
-EXTRA_OECONF = "--disable-glx --enable-xv=no --enable-x11=no"
+PACKAGECONFIG ??= "ffmpeg vp8 opus srtp bzrtp ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)}"
+PACKAGECONFIG[ffmpeg] = ", --disable-ffmpeg, libav"
+PACKAGECONFIG[vp8] = ", --disable-vp8, libvpx"
+PACKAGECONFIG[opus] = ", --disable-opus, opus-bc"
+PACKAGECONFIG[srtp] = ", --with-srtp=none, libsrtp-bc"
+PACKAGECONFIG[zrtp] = "--enable-zrtp=yes, --enable-zrtp=no, libbzrtp"
+PACKAGECONFIG[x11] = "--enable-x11=yes --enable-xv=yes, --enable-x11=no --enable-xv=no, libxv"
+
+EXTRA_OECONF += " --disable-glx"
 
 PACKAGES += "${PN}-bin"
 
