@@ -1,9 +1,9 @@
-jenkins@shuttle-debian8:~/fsl-dizzy-leitner/yocto-exceet/layers/meta-bc/recipes-bc/linphone/mswebrtc$ cat mswebrtc-common.inc 
+
 DESCRIPTION = "Mediastreamer2 plugin adding support for WebRTC features (iSAC codec, AEC...)"
 SECTION = "libs"
 PRIORITY = "optional"
 LICENSE = "GPLv2"
-DEPENDS = "linphone"
+DEPENDS = "mediastreamer2"
 
 #INHIBIT_PACKAGE_STRIP = "1"  
 EXTRA_OECONF = "--disable-isac"

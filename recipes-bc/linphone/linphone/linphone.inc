@@ -5,7 +5,7 @@ SECTION = "comm"
 
 INC_PR = "r0"
 
-DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 cunit-bc"
+DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 cunit-bc mswebrtc"
 PROVIDES = "liblinphone"
 S = "${WORKDIR}/git"
 
