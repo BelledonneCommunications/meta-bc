@@ -5,7 +5,8 @@ SECTION = "comm"
 
 INC_PR = "r0"
 
-DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 cunit-bc mswebrtc"
+DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 cunit-bc mswebrtc opus-bc"
+RDEPENDS = "opus-bc"
 PROVIDES = "liblinphone"
 S = "${WORKDIR}/git"
 
@@ -18,7 +19,7 @@ PACKAGECONFIG[video]= ",--disable-video"
 EXTRA_OECONF += " --without-readline --enable-external-mediastreamer=yes --enable-external-ortp=yes"
 INSANE_SKIP_${PN} += "dev-deps"
 
-PACKAGES += "${PN}-common ${PN}-utils {PN}-tester"
+PACKAGES += "${PN}-common ${PN}-utils ${PN}-tester"
 
 FILES_${PN} += "${bindir}/lp-autoanswer ${bindir}/linphonec ${bindir}/linphonecsh"
 FILES_${PN}-common = "\
