@@ -1,13 +1,14 @@
 DESCRIPTION = "Audio/video SIP-based IP phone (console edition)"
 LICENSE = "GPLv2"
 HOMEPAGE = "http://www.linphone.org/technical-corner/linphone/overview"
-SECTION = "comm"
+SECTION = "network"
+SECTION_linphonec =  "console/network"
 
 INC_PR = "r0"
 
 DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 cunit-bc mswebrtc opus-bc"
 RDEPENDS_${PN} = "opus-bc mswebrtc"
-PROVIDES = "liblinphone"
+PROVIDES = "liblinphone linphonec"
 S = "${WORKDIR}/git"
 
 PACKAGECONFIG ??= "sqlite zlib video ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)}"
@@ -113,6 +114,12 @@ FILES_${PN}-tester ="\
 		 ${datadir}/liblinphone_tester/sipp/sip_update_within_icoming_reinvite_with_no_sdp.xml \
 		 ${datadir}/liblinphone_tester/sipp/call_with_multiple_audio_mline_in_sdp.xml \
 		 ${datadir}/liblinphone_tester/sipp/call_invite_200ok_without_contact_header.xml"
+
+FILES_linphonec = " \
+         ${bindir}/linphonec \
+         ${bindir}/linphonecsh \
+         ${datadir}/sounds/linphone/ringback.wav\
+         "
 
 
 inherit autotools pkgconfig gettext

@@ -5,7 +5,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-DEPENDS = "libpolarssl-bc libantlr3c-bc"
+DEPENDS = "libantlr3c-bc bctoolbox libpolarssl-bc"
 PROVIDES = "libbellesip"
 S = "${WORKDIR}/git"
 
@@ -17,3 +17,7 @@ inherit autotools pkgconfig
 do_autoreconf () {
     ./autogen.sh
 }
+
+
+
+
