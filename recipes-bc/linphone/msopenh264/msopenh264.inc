@@ -4,9 +4,11 @@ PRIORITY = "optional"
 LICENSE = "GPLv3"
 
 
-LIC_FILES_CHKSUM = "file://COPYING;md5=559530bdf33659b29e73d4adb9f9f6552"
+LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
-DEPENDS = "linphone"
+EXTRA_OECONF="--with-openh264=${D}/usr"
+
+DEPENDS = "linphone openh264"
 
 inherit autotools pkgconfig
 
