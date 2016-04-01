@@ -37,8 +37,7 @@ SECTION_${PN}-staticdev = "devel"
 
 CFLAGS += "-Wall -fno-strict-aliasing -fPIC -MMD -MP"
 LDFLAGS += "-lpthread"
-#AR_OPTS = "crD $@"
-#ASMFLAGS += "-march=armv7-a -mfpu=neon"
+
 
 do_compile(){
 	make -e ARCH=${TARGET_ARCH} PREFIX="/usr/" ;
