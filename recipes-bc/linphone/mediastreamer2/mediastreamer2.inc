@@ -5,7 +5,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-DEPENDS = "intltool-native libortp speex alsa-lib libv4l"
+DEPENDS = "intltool-native libortp libgsm speex alsa-lib spandsp libv4l"
 PROVIDES += "libmediastreamer2"
 S = "${WORKDIR}/git"
 
