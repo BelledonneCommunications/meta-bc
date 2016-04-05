@@ -4,7 +4,6 @@ LICENSE = "MIT"
 inherit packagegroup
 
 PROVIDES = "linphone-plugins"
-
-RDEPENDS_${PN} = "linphonec libvpx msopenh264"
-# RDEPENDS_${PN} += "msilbc"
+DEPENDS_${PN} = "libmediastreamer2"
+RDEPENDS_${PN} = " libvpx msopenh264"
 
