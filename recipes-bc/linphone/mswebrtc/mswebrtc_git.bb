@@ -1,6 +1,6 @@
 PR = "r3"
 SRC_URI = "gitsm://git.linphone.org/mswebrtc.git;protocol=git"
-SRCREV = "148373c315a78bbadbe57997bf316f03c561ded2"
+SRCREV = "bae29b6f0880874e2f5a5ce717d3bff06ce96f19"
 S = "${WORKDIR}/git"
 
 require mswebrtc-common.inc

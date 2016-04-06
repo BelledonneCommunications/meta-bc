@@ -1,5 +1,5 @@
 DESCRIPTION = "Plugins for linphone to have additional codecs."
-LICENSE = "MIT"
+LICENSE = "GPLv2"
 
 inherit packagegroup
 
