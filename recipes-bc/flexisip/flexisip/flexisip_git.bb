@@ -4,7 +4,7 @@ inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-SRCREV = "c38c686110b605fa7e9ea6254870ba5c683e10aa"
+SRCREV = "364d9c218de39f218be17dafc4d058b4f7c3bd92"
 SRC_URI = "git://git.linphone.org/flexisip.git"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
