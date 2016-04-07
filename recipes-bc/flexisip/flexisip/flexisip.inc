@@ -9,9 +9,17 @@ DEPENDS = "libsofia-sip-ua-bc libortp"
 RDEPENDS_${PN} = "lsb"
 S = "${WORKDIR}/git"
 
-EXTRA_OECONF = "--enable-odbc=no --enable-redis=no --enable-protobuf=no --enable-transcoder=no --enable-xsd=no"
+EXTRA_OECONF = "--enable-odbc=no \
+				--enable-redis=no\
+				 --enable-protobuf=no \
+				 --enable-transcoder=no \
+				 --enable-xsd=no \
+				 --enable-snmp=no \
+				 --enable-soci=no "
+				
+
 
 INITSCRIPT_NAME = "flexisip"
 INITSCRIPT_PARAMS = "defaults"
 
-inherit autotools pkgconfig gettext update-rc.d
+inherit autotools pkgconfig update-rc.d
