@@ -9,11 +9,11 @@ PROVIDES = "bctoolbox"
 S = "${WORKDIR}/git"
 
 
-INSANE_SKIP_${PN} += "dev-deps"
+INSANE_SKIP_${PN} += "dev-deps "
 
-inherit cmake pkgconfig
+inherit cmake  
 
-EXTRA_OECMAKE += "-DENABLE_TESTS=OFF"
+EXTRA_OECMAKE += "-DENABLE_TESTS=OFF -DCMAKE_SKIP_INSTALL_RPATH=ON"
 
 do_autoreconf () {
     ./autogen.sh
