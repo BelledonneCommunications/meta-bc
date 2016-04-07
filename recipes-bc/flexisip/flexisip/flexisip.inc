@@ -28,7 +28,7 @@ EXTRA_OECONF = "--enable-odbc=no \
 				 --libdir=${STAGING_DIR_HOST}/usr/lib        \
 				 --includedir=${STAGING_DIR_HOST}/usr/include   \            
 				 --oldincludedir=${STAGING_DIR_HOST}/usr/include \
-				 --with-mysql=${STAGING_DIR_HOST}/usr/include/mysql/ ""
+				 --with-mysql=${STAGING_DIR_HOST}/usr/include/mysql/ "
 				
 
 
