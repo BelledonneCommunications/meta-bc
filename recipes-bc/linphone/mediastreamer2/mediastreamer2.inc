@@ -15,7 +15,6 @@ PACKAGECONFIG[vp8] = ", --disable-vp8, libvpx"
 PACKAGECONFIG[opus] = ", --disable-opus, opus-bc"
 PACKAGECONFIG[srtp] = ", --with-srtp=none, libsrtp-bc"
 PACKAGECONFIG[bzrtp] = "--enable-zrtp=yes, --enable-zrtp=no, libbzrtp"
-PACKAGECONFIG[dtls] = "--enable-dtls=yes, --enable-dtls=no"
 PACKAGECONFIG[x11] = "--enable-x11=yes --enable-xv=yes, --enable-x11=no --enable-xv=no, libxv"
 
 EXTRA_OECONF += " --disable-glx"

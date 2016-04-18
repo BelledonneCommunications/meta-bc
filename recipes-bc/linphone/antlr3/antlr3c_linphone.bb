@@ -2,7 +2,7 @@ require antlr3c.inc
 
 PR = "${INC_PR}.0"
 
-SRCREV = "f0dbcbbcd22a7fd9a479ff68d4daa9225fb2f3b1"
+SRCREV = "52075ffb35975c6901e924b4a763b6fb23abd623"
 SRC_URI = "git://git.linphone.org/antlr3.git;nobranch=1"
 PV = "git_${SRCREV}"
 

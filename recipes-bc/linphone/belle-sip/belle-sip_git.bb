@@ -4,7 +4,7 @@ inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-SRCREV = "f0deca3caf3ba2034c0839e49f9c51705eba69c4"
+SRCREV = "c05ca9b4c459d9d320be8b3f6b3587dfb92a5f7d"
 SRC_URI = "git://git.linphone.org/belle-sip.git;commit=${SRCREV}"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
