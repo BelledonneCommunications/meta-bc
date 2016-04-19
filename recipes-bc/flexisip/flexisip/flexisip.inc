@@ -9,8 +9,7 @@ DEPENDS = "libsofia-sip-ua-bc libortp"
 RDEPENDS_${PN} = "lsb"
 S = "${WORKDIR}/git"
 
-EXTRA_OECONF = "
-                --enable-redis=no \
+EXTRA_OECONF = "--enable-redis=no \
                 --enable-protobuf=no \
                 --enable-transcoder=no \
                 --enable-xsd=no \
