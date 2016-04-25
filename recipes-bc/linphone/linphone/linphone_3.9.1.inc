@@ -133,7 +133,7 @@ FILES_${PN}-tester ="${bindir}/liblinphone_tester \
 FILES_${PN}c = "${bindir}/linphonec \
 		        ${bindir}/linphonecsh \
 		        ${datadir}/sounds/linphone/ringback.wav \
-		        ${datadir}/sounds/linphone/oldphone.wav \
+		        ${datadir}/sounds/linphone/rings/oldphone-mono.wav \
 		        "
 
 FILES_${PN}-rings = "${datadir}/sounds/linphone/rings"

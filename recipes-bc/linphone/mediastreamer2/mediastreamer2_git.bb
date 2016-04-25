@@ -4,7 +4,7 @@ inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-SRCREV = "5c813972b998b06ce9046a8b6b0b05990ce1c8c7"
+SRCREV = "0a69ecb89809256b51c32abafe008f229dd9fabc"
 SRC_URI = "git://git.linphone.org/mediastreamer2.git"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
