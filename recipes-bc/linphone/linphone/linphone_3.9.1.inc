@@ -29,8 +29,7 @@ INSANE_SKIP_${PN} += "dev-deps"
 
 PACKAGES += " ${PN}c ${PN}-common ${PN}-utils ${PN}-tester ${PN}-rings"
 
-FILES_${PN} += "${bindir}/lp-autoanswer \
-			 	${bindir}/linphone-daemon \
+FILES_${PN} += "${bindir}/linphone-daemon \
             	${bindir}/linphone-daemon-pipetest \
              	${libdir}/liblinphone.so.9.0.0 \
 				${libdir}/liblinphone.so.9 "
