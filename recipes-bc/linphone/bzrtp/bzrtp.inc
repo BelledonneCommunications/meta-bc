@@ -5,7 +5,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-DEPENDS = "libxml2 zlib polarssl-bc"
+DEPENDS = "bctoolbox libxml2 zlib polarssl-bc"
 PROVIDES = "libbzrtp"
 S = "${WORKDIR}/git"
 
