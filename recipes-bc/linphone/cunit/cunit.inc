@@ -10,7 +10,8 @@ PROVIDES = "cunit-bc"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF += " --enable-shared"
-
+FILES_${PN} += "${datadir}/CUnit \
+		/usr/doc"
 
 inherit autotools pkgconfig
 
