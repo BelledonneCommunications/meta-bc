@@ -15,6 +15,7 @@ EXTRA_OECONF = "--enable-redis=no \
                 --enable-xsd=no \
                 --enable-snmp=no \
                 --enable-soci=no \
+		--enable-doc=no \
                 --prefix=${D}${prefix} \
                 --exec_prefix=${D}${exec_prefix} \
                 --with-mysql=${D}${includedir}/mysql/ "
