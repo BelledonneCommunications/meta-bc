@@ -9,6 +9,6 @@ SRC_URI = "git://git.linphone.org/linphone.git"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
 
-LIC_FILES_CHKSUM = "file://COPYING;md5=d0df6696dd1de18b107a24dc34735b28"
+LIC_FILES_CHKSUM = "file://COPYING;md5=d421c6fe1a13d8b1dc830e02bcd20fcd"
 
 
