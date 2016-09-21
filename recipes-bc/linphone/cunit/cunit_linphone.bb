@@ -2,7 +2,7 @@ require cunit.inc
 
 PR = "${INC_PR}.0"
 
-SRCREV = "ca8908ec01cb24a7e6e4230746c9be29097fc2fc"
+SRCREV = "6ce00eae4ca20ab284e17a88d8c7089bddb84ef0"
 SRC_URI = "git://git.linphone.org/cunit.git;nobranch=1"
 PV = "git_${SRCREV}"
 

@@ -3,7 +3,7 @@ require msopenh264.inc
 PR = "r1"
 SRC_URI = "git://git.linphone.org/msopenh264.git;protocol=git"
 
-SRCREV = "a414fe65ca78278da4f0f608d44b00b729793ddc"
+SRCREV = "4cb4b134bf0f1538fd0c2c928eee2d5388115abc"
 S = "${WORKDIR}/git"
 
 

@@ -4,7 +4,7 @@ inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-SRCREV = "5a6196e3d0a5d5b2998522379c9fdc2788378570"
+SRCREV = "0d3874b526221f8994c8b3f6d92a143db889b395"
 SRC_URI = "git://git.linphone.org/bzrtp.git"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
