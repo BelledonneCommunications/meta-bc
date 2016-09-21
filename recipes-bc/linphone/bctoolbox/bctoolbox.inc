@@ -4,7 +4,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-DEPENDS = "libpolarssl-bc cunit-bc"
+DEPENDS = "mbedtls cunit-bc"
 PROVIDES = "bctoolbox"
 S = "${WORKDIR}/git"
 
