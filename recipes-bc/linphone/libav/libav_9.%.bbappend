@@ -20,7 +20,7 @@ EXTRA_OECONF = " \
     --sysroot="${STAGING_DIR_TARGET}" \
     --enable-hardcoded-tables \
     ${EXTRA_FFCONF} \
-    --disable-x11 \
+    --disable-x11grab \
     --libdir=${libdir} \
     --shlibdir=${libdir} \
 "
