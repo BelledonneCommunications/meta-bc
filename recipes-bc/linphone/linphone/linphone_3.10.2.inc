@@ -8,8 +8,6 @@ INC_PR = "r0"
 
 DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 mswebrtc opus-bc"
 RDEPENDS_${PN} = "opus-bc mswebrtc"
-RDEPENDS_${PN}c += "linphone-rings"
-RDEPENDS_${PN} += "linphone-rings"
 
 PROVIDES = "liblinphone linphonec"
 
