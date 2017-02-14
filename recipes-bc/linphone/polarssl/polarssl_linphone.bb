@@ -2,7 +2,7 @@ require polarssl.inc
 
 PR = "${INC_PR}.0"
 
-SRCREV = "bd496b8b93ade4ea69e5f2bee6376c6e2b3ae8f9"
+SRCREV = "${AUTOREV}"
 SRC_URI = "git://git.linphone.org/polarssl.git;nobranch=1"
 PV = "git_${SRCREV}"
 

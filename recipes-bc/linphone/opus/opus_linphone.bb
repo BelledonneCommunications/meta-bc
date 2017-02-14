@@ -2,7 +2,7 @@ require opus.inc
 
 PR = "${INC_PR}.0"
 
-SRCREV = "1f22ae379bbcdfa376775db2b9407529fb1fa781"
+SRCREV = "${AUTOREV}"
 SRC_URI = "git://git.linphone.org/opus.git;nobranch=1"
 PV = "git_${SRCREV}"
 

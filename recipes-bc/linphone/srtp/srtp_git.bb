@@ -2,7 +2,7 @@ require srtp.inc
 
 PR = "${INC_PR}.0"
 
-SRCREV = "d79ae95126baa3cec83097469e97525a1d9e2d50"
+SRCREV = "${AUTOREV}"
 SRC_URI = "git://git.linphone.org/srtp.git"
 PV = "git_${SRCREV}"
 
