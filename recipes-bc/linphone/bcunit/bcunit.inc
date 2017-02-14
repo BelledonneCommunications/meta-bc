@@ -10,7 +10,7 @@ S = "${WORKDIR}/git"
 
 EXTRA_OECONF += " --enable-shared"
 FILES_${PN} += "${datadir}/BCUnit "
-FILES_${PN}-doc += "		/usr/doc"
+FILES_${PN}-doc += "/usr/doc"
 
 inherit autotools pkgconfig
 
