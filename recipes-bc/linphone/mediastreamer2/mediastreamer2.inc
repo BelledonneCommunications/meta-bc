@@ -5,7 +5,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-DEPENDS = "intltool-native libortp speex alsa-lib spandsp libv4l"
+DEPENDS = "intltool-native libortp speex alsa-lib spandsp libv4l pulseaudio"
 PROVIDES += "libmediastreamer2"
 S = "${WORKDIR}/git"
 
@@ -17,7 +17,7 @@ PACKAGECONFIG[srtp] = ", --with-srtp=none, libsrtp-bc"
 PACKAGECONFIG[bzrtp] = "--enable-zrtp=yes, --enable-zrtp=no, libbzrtp"
 PACKAGECONFIG[x11] = "--enable-x11=yes --enable-xv=yes, --enable-x11=no --enable-xv=no, libxv"
 
-EXTRA_OECONF += " --disable-glx"
+EXTRA_OECONF += " --disable-glx --disable-pcap"
 
 PACKAGES += "${PN}-bin"
 
