@@ -6,7 +6,7 @@ SECTION = "libs/network"
 INC_PR = "r0"
 
 PN = "sofia-sip-ua-bc"
-DEPENDS = "openssl"
+DEPENDS = "openssl bctoolbox"
 PROVIDES = "libsofia-sip-ua-bc"
 S = "${WORKDIR}/git"
 
