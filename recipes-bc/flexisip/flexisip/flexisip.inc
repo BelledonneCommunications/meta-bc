@@ -6,7 +6,7 @@ SECTION = "comm"
 INC_PR = "r0"
 
 DEPENDS = "libsofia-sip-ua-bc libortp"
-RDEPENDS_${PN} = "lsb"
+RDEPENDS_${PN} = "lsb python"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = "--enable-redis=no \
@@ -26,3 +26,7 @@ INITSCRIPT_NAME = "flexisip"
 INITSCRIPT_PARAMS = "defaults"
 
 inherit autotools pkgconfig update-rc.d
+
+do_autoreconf () {
+    ./autogen.sh
+}
