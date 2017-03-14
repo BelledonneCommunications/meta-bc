@@ -1,4 +1,4 @@
-require cunit.inc
+require bcunit.inc
 
 PR = "${INC_PR}.0"
 

@@ -20,7 +20,7 @@ PACKAGECONFIG[sqlite] = "--enable-msg-storage=yes, --enable-msg-storage=no, sqli
 PACKAGECONFIG[zlib] = ", --disable-zlib, zlib"
 PACKAGECONFIG[video]= ",--disable-video"
 
-EXTRA_OECONF += " --without-readline --enable-external-mediastreamer=yes --enable-external-ortp=yes --enable-gtk_ui=no --disable-x11"
+EXTRA_OECONF += " --without-readline --enable-external-mediastreamer=yes --enable-external-ortp=yes --enable-gtk_ui=no --disable-x11 --enable-tunnel=yes"
 INSANE_SKIP_${PN} += "dev-deps"
 
 PACKAGES += " ${PN}c ${PN}-common ${PN}-utils ${PN}-tester ${PN}-rings"

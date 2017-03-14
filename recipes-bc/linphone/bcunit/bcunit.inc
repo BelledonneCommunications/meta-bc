@@ -5,8 +5,8 @@ SECTION = "libs/"
 
 INC_PR = "r0"
 
-PN = "cunit-bc"
-PROVIDES = "cunit-bc"
+PN = "bcunit"
+PROVIDES = "bcunit"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF += " --enable-shared"
