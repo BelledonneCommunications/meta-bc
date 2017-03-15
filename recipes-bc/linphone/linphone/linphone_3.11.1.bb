@@ -1,4 +1,4 @@
-require linphone_3.10.2.inc
+require linphone_3.11.1.inc
 
 inherit gitpkgv
 
