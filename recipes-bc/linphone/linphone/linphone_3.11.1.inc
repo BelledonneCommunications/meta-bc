@@ -6,7 +6,7 @@ SECTION_linphonec =  "console/network"
 
 INC_PR = "r0"
 
-DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 mswebrtc opus-bc"
+DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 mswebrtc opus-bc bctoolbox"
 RDEPENDS_${PN} = "opus-bc mswebrtc"
 
 PROVIDES = "liblinphone linphonec"

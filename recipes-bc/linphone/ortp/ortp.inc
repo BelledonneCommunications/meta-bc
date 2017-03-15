@@ -5,6 +5,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
+DEPENDS = "bctoolbox"
 PROVIDES = "libortp"
 S = "${WORKDIR}/git"
 
