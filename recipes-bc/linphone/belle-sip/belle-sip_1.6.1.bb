@@ -1,4 +1,4 @@
-require belle-sip.inc
+require belle-sip_1.6.1.inc
 
 inherit gitpkgv
 
