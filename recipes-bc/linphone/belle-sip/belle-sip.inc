@@ -9,7 +9,7 @@ DEPENDS = "libantlr3c-bc bctoolbox libpolarssl-bc zlib"
 PROVIDES = "libbellesip"
 S = "${WORKDIR}/git"
 
-EXTRA_OECONF += "--disable-strict --with-antlr=${STAGING_DIR_HOST}${layout_exec_prefix}/usr --enable-tunnel=yes"
+EXTRA_OECONF += "--disable-strict --with-antlr=${STAGING_DIR_HOST}${layout_exec_prefix}/usr "
 INSANE_SKIP_${PN} += "dev-deps"
 
 inherit autotools pkgconfig
