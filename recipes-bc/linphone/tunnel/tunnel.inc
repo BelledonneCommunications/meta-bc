@@ -4,9 +4,11 @@ HOMEPAGE = "http://www.linphone.org/technical-corner/tunnel/overview"
 SECTION = "libs/network"
 
 INC_PR = "r0"
+
 DEPENDS = "bctoolbox openssl"
 DEPENDS_${PN} = "bctoolbox openssl"
-PROVIDES = "tunnel
+PROVIDES = "tunnel"
+
 S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
