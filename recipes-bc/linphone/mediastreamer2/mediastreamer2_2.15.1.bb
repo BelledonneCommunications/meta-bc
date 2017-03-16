@@ -1,4 +1,4 @@
-require mediastreamer2.inc
+require mediastreamer2_2.15.1.inc
 
 inherit gitpkgv
 
