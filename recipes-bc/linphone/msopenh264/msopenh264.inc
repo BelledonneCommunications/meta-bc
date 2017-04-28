@@ -6,11 +6,11 @@ LICENSE = "GPLv3"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
-EXTRA_OECONF="--with-openh264=${STAGING_DIR_HOST}/usr"
-
+#EXTRA_OECONF="--with-openh264=${STAGING_DIR_HOST}/usr"
+EXTRA_OECMAKE += "--with-openh264=${STAGING_DIR_HOST}/usr"
 DEPENDS = "linphone openh264"
 
-inherit autotools pkgconfig
+inherit cmake
 
 FILES_${PN} = "${libdir}/mediastreamer/plugins/*.so.*"
 FILES_${PN}-dev = "${libdir}/mediastreamer/plugins/*.la ${libdir}/mediastreamer/plugins/*.so"

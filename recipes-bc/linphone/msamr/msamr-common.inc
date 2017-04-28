@@ -16,4 +16,4 @@ EXTRA_OECONF = "${MSAMR_WIDEBAND}"
 FILES_${PN} = "${libdir}/mediastreamer/plugins/*.so.*"
 FILES_${PN}-dev = "${libdir}/mediastreamer/plugins/*.la ${libdir}/mediastreamer/plugins/*.so"
 FILES_${PN}-dbg += "${libdir}/mediastreamer/plugins/.debug"
-inherit autotools pkgconfig
+inherit cmake

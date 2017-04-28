@@ -1,0 +1,49 @@
+--- a/CMakeLists.txt	2017-04-06 12:38:13.000000000 +0200
++++ b/CMakeLists.txt	2017-04-28 15:09:09.000000000 +0200
+@@ -123,9 +123,9 @@
+ set(libdir ${prefix}/lib)
+ set(includedir ${prefix}/include)
+ get_filename_component(antlr3c_library_path "${ANTLR3C_LIBRARIES}" PATH)
+-set(LIBS_PRIVATE "-L${antlr3c_library_path} -lantlr3c")
++set(LIBS_PRIVATE " -lantlr3c")
+ get_filename_component(bctoolbox_library_path "${BCTOOLBOX_CORE_LIBRARIES}" PATH)
+-set(LIBS_PRIVATE "${LIBS_PRIVATE} -L${bctoolbox_library_path} -lbctoolbox")
++set(LIBS_PRIVATE "${LIBS_PRIVATE} -lbctoolbox")
+ if(ZLIB_FOUND)
+ 	set(REQUIRES_PRIVATE "${REQUIRES_PRIVATE} z")
+ endif()
+
+--- a/belle-sip.pc.in	2017-04-28 14:47:09.000000000 +0200
++++ b/belle-sip.pc.in 2017-04-28 15:08:05.000000000 +0200
+@@ -9,5 +9,5 @@
+ Requires.private: @REQUIRES_PRIVATE@ @TLS_PC@
+ Version: @VERSION@
+ Libs: -L@libdir@ -lbellesip
+-Libs.private: @LIBS_PRIVATE@
++Libs.private: -L@CMAKE_INSTALL_FULL_LIBDIR@ @LIBS_PRIVATE@
+ Cflags: -I@includedir@ 
+
+
+--- a/cmake/FindAntlr3.cmake	2017-04-28 15:17:49.000000000 +0200
++++ b/cmake/FindAntlr3.cmake	2017-04-28 15:18:03.000000000 +0200
+@@ -27,7 +27,6 @@
+ #  ANTLR3C_LIBRARIES - The libraries needed to use antlr3c
+ #  ANTLR3_COMMAND - The command to run the antlr jar
+ 
+-find_package(Java COMPONENTS Runtime REQUIRED)
+ 
+ set(_ANTLR3C_ROOT_PATHS
+ 	${CMAKE_INSTALL_PREFIX}
+@@ -59,10 +58,12 @@
+ 	NAMES antlr3
+ 	HINTS ${_ANTLR3_JAR_ROOT_PATHS}
+ 	PATH_SUFFIXES bin
++	NO_CMAKE_FIND_ROOT_PATH
+ )
+ 
+ if(NOT ANTLR3_COMMAND)
+ 	# antlr3 command not found, search for the jar file
++	find_package(Java COMPONENTS Runtime REQUIRED)
+ 	find_file(ANTLR3_JAR_PATH
+ 		NAMES antlr3.jar antlr.jar
+ 		HINTS ${_ANTLR3_JAR_ROOT_PATHS}

@@ -1,0 +1,12 @@
+--- a/CMakeLists.txt	2017-04-21 15:40:04.000000000 +0200
++++ b/CMakeLists.txt	2017-04-21 15:39:56.000000000 +0200
+@@ -94,7 +94,7 @@
+ endif()
+ if(POLARSSL_FOUND)
+ 	get_filename_component(polarssl_library_path "${POLARSSL_LIBRARIES}" PATH)
+-	set(LIBS_PRIVATE "${LIBS_PRIVATE} -L${polarssl_library_path} -lpolarssl")
++	set(LIBS_PRIVATE "${LIBS_PRIVATE}  -lpolarssl")
+ endif()
+ 
+ if(ENABLE_TESTS_COMPONENT)
+

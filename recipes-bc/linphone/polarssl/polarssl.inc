@@ -9,14 +9,11 @@ PN = "polarssl-bc"
 PROVIDES = "libpolarssl-bc"
 S = "${WORKDIR}/git"
 
-EXTRA_OECONF += " --enable-shared"
+EXTRA_OECMAKE += "-DENABLE_SHARED=ON"
 
 PACKAGES += " ${PN}-utils"
 
 FILES_${PN}-utils += "${bindir}/polarssl_*"
 
-inherit autotools pkgconfig
+inherit cmake
 
-do_autoreconf () {
-    ./autogen.sh
-}

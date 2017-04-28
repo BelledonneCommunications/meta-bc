@@ -11,4 +11,4 @@ S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " --prefix=${STAGING_DIR_HOST}${layout_exec_prefix}/usr"
 
-inherit autotools pkgconfig
+inherit cmake

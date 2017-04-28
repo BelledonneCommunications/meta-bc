@@ -1,0 +1,10 @@
+--- a/cmake/FindMbedTLS.cmake	2017-04-06 12:38:13.000000000 +0200
++++ b/cmake/FindMbedTLS.cmake	2017-04-20 17:16:01.000000000 +0200
+@@ -40,6 +40,7 @@
+ # find the three mbedtls library
+ find_library(MBEDTLS_LIBRARY
+ 	NAMES mbedtls
++	PATH_SUFFIXES bin lib
+ )
+ 
+ find_library(MBEDX509_LIBRARY
