@@ -16,11 +16,10 @@ S = "${WORKDIR}/git"
 inherit cmake gettext
 
 PACKAGECONFIG ??= "sqlite zlib video"
-PACKAGECONFIG[sqlite] = "--enable-msg-storage=yes, --enable-msg-storage=no, sqlite3"
+PACKAGECONFIG[sqlite] = "-DENABLE_SQLITE_STORAGE=yes, -DENABLE_SQLITE_STORAGE=no, sqlite3"
 PACKAGECONFIG[zlib] = ", --disable-zlib, zlib"
-PACKAGECONFIG[video]= ",--disable-video"
+PACKAGECONFIG[video]= ",-DENABLE_VIDEO=NO
 
-#EXTRA_OECONF += " --without-readline --enable-external-mediastreamer=yes --enable-external-ortp=yes --enable-gtk_ui=no --disable-x11"
 EXTRA_OECMAKE += " -DENABLE_CONSOLE_UI=NO -DENABLE_GTK_UI=NO "
 
 INSANE_SKIP_${PN} += "dev-deps"

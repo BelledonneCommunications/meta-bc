@@ -6,7 +6,7 @@ LICENSE = "GPLv2"
 DEPENDS = "mediastreamer2"
 
 #INHIBIT_PACKAGE_STRIP = "1"  
-EXTRA_OECONF = "--disable-isac"
+EXTRA_OECMAKE += " -DENABLE_ISAC=NO "
 
 FILES_${PN} = "${libdir}/mediastreamer/plugins/*.so.*"
 FILES_${PN}-dev = "${libdir}/mediastreamer/plugins/*.la ${libdir}/mediastreamer/plugins/*.so"
