@@ -39,4 +39,4 @@ FILES_${PN}-dev += " \
     ${libdir}/*.a \
     ${libdir}/*.o \
     ${libdir}/pkgconfig \
-    ${prefix}/share/bctoolbox/ 
+    ${prefix}/share/bctoolbox/ "

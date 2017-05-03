@@ -18,8 +18,8 @@ PACKAGECONFIG[bzrtp] = " -DENABLE_BZRTP=YES, -DENABLE_BZRTP=NO, libbzrtp"
 PACKAGECONFIG[gsm] = " -DENABLE_GSM=YES, -DENABLE_GSM=NO, libgsm"
 PACKAGECONFIG[x11] = " -DENABLE_X11=YES -DENABLE_XV=YES,  -DENABLE_X11=NO -DENABLE_XV=NO, libxv"
 
+EXTRA_OECMAKE += " -DCMAKE_SKIP_INSTALL_RPATH=ON -DENABLE_GLX=NO -DENABLE_GL=NO -DENABLE_GLX_DEFAULT_VALUE=NO -DENABLE_PCAP=NO -DENABLE_BV16=NO -DENABLE_DOC=NO"
 
-EXTRA_OECMAKE += " -DENABLE_GL=NO -DENABLE_GLX_DEFAULT_VALUE=NO -DENABLE_PCAP=NO -DENABLE_GSM=NO -DENABLE_BV16=NO -DENABLE_DOC=NO -DCMAKE_SKIP_INSTALL_RPATH=ON"
 
 #PACKAGES += "${PN}-bin"
 
@@ -35,4 +35,6 @@ FILES_${PN}-dev += " \
     ${libdir}/pkgconfig \
     ${prefix}/share/Mediastreamer2 "
 
-inherit  cmake lib_package pkgconfig  pythonnative
+inherit  cmake lib_package pkgconfig pythonnative 
+#inherit autotools pkgconfig gettext
+
