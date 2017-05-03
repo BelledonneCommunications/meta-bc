@@ -20,7 +20,7 @@ PACKAGECONFIG[sqlite] = "-DENABLE_SQLITE_STORAGE=yes, -DENABLE_SQLITE_STORAGE=no
 PACKAGECONFIG[zlib] = ", --disable-zlib, zlib"
 PACKAGECONFIG[video]= ",-DENABLE_VIDEO=NO
 
-EXTRA_OECMAKE += " -DENABLE_CONSOLE_UI=NO -DENABLE_GTK_UI=NO "
+EXTRA_OECMAKE += " -DENABLE_CONSOLE_UI=NO -DENABLE_GTK_UI=NO -DCMAKE_SKIP_INSTALL_RPATH=ON"
 
 INSANE_SKIP_${PN} += "dev-deps"
 
@@ -133,6 +133,13 @@ FILES_${PN}c = "${bindir}/linphonec \
 
 FILES_${PN}-rings = "${datadir}/sounds/linphone/rings"
 
+
+FILES_${PN}-dev += " \
+    ${includedir} \
+    ${libdir}/pkgconfig \
+    ${prefix}/share/Linphone "
+
+    
 do_configure_prepend() {
     #!/bin/sh
     echo 'Deleting mediastreamer2 and oRTP'
