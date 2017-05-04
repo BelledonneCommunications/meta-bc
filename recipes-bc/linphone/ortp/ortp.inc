@@ -4,9 +4,19 @@ HOMEPAGE = "http://www.linphone.org/technical-corner/ortp/overview"
 SECTION = "libs/network"
 
 INC_PR = "r0"
-
 DEPENDS = "bctoolbox"
+EXTRA_OECMAKE += " -DCMAKE_SKIP_INSTALL_RPATH=ON "
 PROVIDES = "libortp"
 S = "${WORKDIR}/git"
 
-inherit autotools pkgconfig
+inherit cmake
+
+FILES_${PN}-dev = " \
+    ${includedir} \
+    ${libdir}/lib*.so \
+    ${libdir}/*.la \
+    ${libdir}/*.a \
+    ${libdir}/*.o \
+    ${libdir}/pkgconfig \
+    ${prefix}/share/oRTP/" 
+

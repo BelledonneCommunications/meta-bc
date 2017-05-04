@@ -10,11 +10,11 @@ PROVIDES = "libantlr3c-bc"
 S = "${WORKDIR}/git/runtime/C"
 ALLOW_EMPTY_${PN}="1"
 
-inherit autotools pkgconfig
+inherit cmake pkgconfig
 
-do_autoreconf() {
-	./autogen.sh
-}
+#do_autoreconf() {
+#	./autogen.sh
+#}
 
 do_install_append() {
 	mkdir -p ${STAGING_DIR_HOST}/usr/share/java

@@ -9,19 +9,32 @@ DEPENDS = "intltool-native libortp speex alsa-lib spandsp libv4l"
 PROVIDES += "libmediastreamer2"
 S = "${WORKDIR}/git"
 
-PACKAGECONFIG ??= "ffmpeg vp8 opus srtp bzrtp ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)}"
-PACKAGECONFIG[ffmpeg] = ", --disable-ffmpeg, libav"
-PACKAGECONFIG[vp8] = ", --disable-vp8, libvpx"
-PACKAGECONFIG[opus] = ", --disable-opus, opus-bc"
-PACKAGECONFIG[srtp] = ", --with-srtp=none, libsrtp-bc"
-PACKAGECONFIG[bzrtp] = "--enable-zrtp=yes, --enable-zrtp=no, libbzrtp"
-PACKAGECONFIG[x11] = "--enable-x11=yes --enable-xv=yes, --enable-x11=no --enable-xv=no, libxv"
+PACKAGECONFIG ??= "ffmpeg vpx opus srtp bzrtp gsm ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)}"
+PACKAGECONFIG[ffmpeg] = ",  -DENABLE_FFMPEG=NO, libav"
+PACKAGECONFIG[vpx] = ", -DENABLE_VPX=NO, libvpx"
+PACKAGECONFIG[opus] = ", -DENABLE_OPUS=NO, opus-bc"
+PACKAGECONFIG[srtp] = ", -DENABLE_SRTP=NO, libsrtp-bc"
+PACKAGECONFIG[bzrtp] = " -DENABLE_BZRTP=YES, -DENABLE_BZRTP=NO, libbzrtp"
+PACKAGECONFIG[gsm] = " -DENABLE_GSM=YES, -DENABLE_GSM=NO, libgsm"
+PACKAGECONFIG[x11] = " -DENABLE_X11=YES -DENABLE_XV=YES,  -DENABLE_X11=NO -DENABLE_XV=NO, libxv"
 
-EXTRA_OECONF += " --disable-glx --disable-pcap"
+EXTRA_OECMAKE += " -DCMAKE_SKIP_INSTALL_RPATH=ON -DENABLE_GLX=NO -DENABLE_GL=NO -DENABLE_GLX_DEFAULT_VALUE=NO -DENABLE_PCAP=NO -DENABLE_BV16=NO -DENABLE_DOC=NO"
 
-PACKAGES += "${PN}-bin"
 
-FILES_${PN}-bin = "${bindir}/mediastream ${bindir}/msaudiocmp"
+#PACKAGES += "${PN}-bin"
+
+#FILES_${PN}-bin = "${bindir}/mediastream ${bindir}/msaudiocmp"
 FILES_${PN} += " ${libdir}/mediastreamer/plugins ${datadir}/images/nowebcamCIF.jpg"
 
-inherit autotools pkgconfig gettext
+FILES_${PN}-dev += " \
+    ${includedir} \
+    ${libdir}/lib*.so \
+    ${libdir}/*.la \
+    ${libdir}/*.a \
+    ${libdir}/*.o \
+    ${libdir}/pkgconfig \
+    ${prefix}/share/Mediastreamer2 "
+
+inherit  cmake lib_package pkgconfig pythonnative 
+#inherit autotools pkgconfig gettext
+

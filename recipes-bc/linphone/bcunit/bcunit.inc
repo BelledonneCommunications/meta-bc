@@ -9,12 +9,9 @@ PN = "bcunit"
 PROVIDES = "bcunit"
 S = "${WORKDIR}/git"
 
-EXTRA_OECONF += " --enable-shared"
+EXTRA_OECMAKE += " -DENABLE_SHARED=ON"
 FILES_${PN} += "${datadir}/CUnit \
 		/usr/doc"
 
-inherit autotools pkgconfig
+inherit cmake pkgconfig
 
-do_autoreconf () {
-    ./autogen.sh
-}

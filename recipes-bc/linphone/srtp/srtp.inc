@@ -9,4 +9,4 @@ PN = "srtp-bc"
 PROVIDES = "libsrtp-bc"
 S = "${WORKDIR}/git"
 
-inherit autotools pkgconfig
+inherit cmake

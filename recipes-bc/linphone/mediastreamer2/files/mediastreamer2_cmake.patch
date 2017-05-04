@@ -1,0 +1,23 @@
+--- a/src/CMakeLists.txt	2017-05-02 15:02:55.000000000 +0200
++++ b/src/CMakeLists.txt	2017-05-02 15:04:01.000000000 +0200
+@@ -31,7 +31,7 @@
+ 	find_library(LIBMINGWEX NAMES mingwex)
+ endif()
+ 
+-find_program(AWK_PROGRAM awk)
++find_program(AWK_PROGRAM awk NO_CMAKE_FIND_ROOT_PATH)
+ if(NOT AWK_PROGRAM)
+ 	message(FATAL_ERROR "You need the awk program to build mediastreamer2.")
+ endif()
+
+--- a/src/CMakeLists.txt        2017-05-02 15:02:55.000000000 +0200
++++ b/src/CMakeLists.txt        2017-05-02 15:04:01.000000000 +0200
+@@ -461,7 +464,7 @@
+ if(APPLE OR ANDROID OR OPENGL_FOUND OR GLX_FOUND OR QTANGLE_FOUND)
+ 	find_package(PythonInterp REQUIRED)
+-	find_program(SED_PROGRAM sed)
++	find_program(SED_PROGRAM sed NO_CMAKE_FIND_ROOT_PATH)
+ 	if(NOT SED_PROGRAM)
+ 		message(FATAL_ERROR "You need the sed program to build mediastreamer2.")
+ 	endif()
+
