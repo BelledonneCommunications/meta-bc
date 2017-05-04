@@ -139,7 +139,7 @@ FILES_${PN}-dev += " \
     ${libdir}/pkgconfig \
     ${prefix}/share/Linphone "
 
-    
+
 do_configure_prepend() {
     #!/bin/sh
     echo 'Deleting mediastreamer2 and oRTP'
@@ -147,3 +147,4 @@ do_configure_prepend() {
     rm -rf ${S}/oRTP
     echo 'mediastreamer2 and oRTP have been removed'
 }
+

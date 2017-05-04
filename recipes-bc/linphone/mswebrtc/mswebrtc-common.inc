@@ -10,9 +10,11 @@ EXTRA_OECMAKE += " -DENABLE_ISAC=NO "
 
 FILES_${PN} = "${libdir}/mediastreamer/plugins/*.so.*"
 FILES_${PN}-dev = "${libdir}/mediastreamer/plugins/*.la ${libdir}/mediastreamer/plugins/*.so"
-FILES_${PN}-dev += " ${libdir}/mediastreamer/plugins/*.a "
 FILES_${PN}-dbg = "${libdir}/mediastreamer/plugins/.debug/*.so.* /usr/src/debug"
+
+FILES_${PN}-dev += " ${libdir}/mediastreamer/plugins/*.a "
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
-inherit cmake pkgconfig
+
+inherit cmake  pkgconfig

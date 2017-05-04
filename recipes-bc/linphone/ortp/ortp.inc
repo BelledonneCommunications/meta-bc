@@ -18,6 +18,5 @@ FILES_${PN}-dev = " \
     ${libdir}/*.a \
     ${libdir}/*.o \
     ${libdir}/pkgconfig \
-    ${prefix}/share/oRTP/"
-
+    ${prefix}/share/oRTP/" 
 

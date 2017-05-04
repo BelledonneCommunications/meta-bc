@@ -10,16 +10,16 @@ PROVIDES = "libbellesip"
 S = "${WORKDIR}/git"
 
 
-EXTRA_OECMAKE += " -DENABLE_STRICT=NO -DCMAKE_SKIP_INSTALL_RPATH=ON "
+inherit  pkgconfig cmake gettext
 
-ANTLR_CFLAGS += " -I ${STAGING_DIR_HOST}${layout_exec_prefix}/usr/include"
-ANTLR_LIBS += " -L ${STAGING_DIR_HOST}${layout_exec_prefix}/usr/lib"
 
+EXTRA_OECMAKE += " -DENABLE_STRICT=NO -DCMAKE_SKIP_INSTALL_RPATH=ON"
+ANTLR_CFLAGS += " -I ${STAGING_DIR_HOST}/usr/include"
+ANTLR_LIBS += " -L ${STAGING_DIR_HOST}/usr/lib"
 CFLAGS += " ${ANTLR_CFLAGS} ${ANTLR_LIBS} -lantlr3c"
 
-INSANE_SKIP_${PN} += "dev-deps"
 
-inherit cmake  pkgconfig
+INSANE_SKIP_${PN} += "dev-deps"
 
 
 FILES_${PN}-dev = " \
@@ -29,5 +29,9 @@ FILES_${PN}-dev = " \
     ${libdir}/*.a \
     ${libdir}/*.o \
     ${libdir}/pkgconfig \
-    ${prefix}/share/BelleSIP/"
+    ${prefix}/share/BelleSIP"
+
+
+
+
 
