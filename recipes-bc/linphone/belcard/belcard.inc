@@ -1,13 +1,13 @@
-DESCRIPTION = "Real-time transport protocol (RFC 3550) library"
+DESCRIPTION = "Belcard is a C++ library to manipulate VCard standard format"
 LICENSE = "GPLv2"
-HOMEPAGE = "http://www.linphone.org/technical-corner/ortp/overview"
+HOMEPAGE = "http://www.linphone.org/"
 SECTION = "libs/network"
 
 INC_PR = "r0"
-DEPENDS = "libbctoolbox"
+DEPENDS = "libbelr"
 EXTRA_OECMAKE += " -DCMAKE_SKIP_INSTALL_RPATH=ON "
 EXTRA_OECMAKE += "-DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_INSTALL_LIBDIR=lib"
-PROVIDES = "libortp"
+PROVIDES = "libbelcard"
 S = "${WORKDIR}/git"
 
 inherit cmake
@@ -15,9 +15,6 @@ inherit cmake
 FILES_${PN}-dev = " \
     ${includedir} \
     ${libdir}/lib*.so \
-    ${libdir}/*.la \
     ${libdir}/*.a \
-    ${libdir}/*.o \
-    ${libdir}/pkgconfig \
-    ${prefix}/share/oRTP/" 
+    ${prefix}/share/Belcard" 
 

@@ -5,7 +5,7 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
-DEPENDS = "intltool-native libortp speex alsa-lib spandsp libv4l"
+DEPENDS = "libortp speex alsa-lib spandsp libv4l virtual/gettext"
 PROVIDES += "libmediastreamer2"
 S = "${WORKDIR}/git"
 
@@ -18,7 +18,9 @@ PACKAGECONFIG[bzrtp] = " -DENABLE_BZRTP=YES, -DENABLE_BZRTP=NO, libbzrtp"
 PACKAGECONFIG[gsm] = " -DENABLE_GSM=YES, -DENABLE_GSM=NO, libgsm"
 PACKAGECONFIG[x11] = " -DENABLE_X11=YES -DENABLE_XV=YES,  -DENABLE_X11=NO -DENABLE_XV=NO, libxv"
 
+inherit  cmake lib_package pkgconfig pythonnative 
 EXTRA_OECMAKE += " -DCMAKE_SKIP_INSTALL_RPATH=ON -DENABLE_GLX=NO -DENABLE_GL=NO -DENABLE_GLX_DEFAULT_VALUE=NO -DENABLE_PCAP=NO -DENABLE_BV16=NO -DENABLE_DOC=NO"
+EXTRA_OECMAKE += "-DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_INSTALL_LIBDIR=lib"
 
 
 #PACKAGES += "${PN}-bin"
@@ -31,10 +33,8 @@ FILES_${PN}-dev += " \
     ${libdir}/lib*.so \
     ${libdir}/*.la \
     ${libdir}/*.a \
-    ${libdir}/*.o \
     ${libdir}/pkgconfig \
     ${prefix}/share/Mediastreamer2 "
 
-inherit  cmake lib_package pkgconfig pythonnative 
 #inherit autotools pkgconfig gettext
 

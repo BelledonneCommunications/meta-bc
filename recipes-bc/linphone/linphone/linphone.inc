@@ -6,30 +6,31 @@ SECTION_linphonec =  "console/network"
 
 INC_PR = "r0"
 
-DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 mswebrtc opus-bc bctoolbox"
-RDEPENDS_${PN} = "opus-bc mswebrtc"
+DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 libmswebrtc opus-bc libbctoolbox"
+RDEPENDS_${PN} = "opus-bc "
 
 PROVIDES = "liblinphone linphonec"
 
 S = "${WORKDIR}/git"
 
-inherit cmake gettext
+inherit cmake gettext pythonnative
 
 PACKAGECONFIG ??= "sqlite zlib video"
 PACKAGECONFIG[sqlite] = "-DENABLE_SQLITE_STORAGE=yes, -DENABLE_SQLITE_STORAGE=no, sqlite3"
 PACKAGECONFIG[zlib] = ", --disable-zlib, zlib"
 PACKAGECONFIG[video]= ",-DENABLE_VIDEO=NO"
 
-EXTRA_OECMAKE += " -DENABLE_CONSOLE_UI=NO -DENABLE_GTK_UI=NO -DCMAKE_SKIP_INSTALL_RPATH=ON"
+EXTRA_OECMAKE += " -DENABLE_CONSOLE_UI=NO -DENABLE_GTK_UI=NO -DCMAKE_SKIP_INSTALL_RPATH=ON -DENABLE_CXX_WRAPPER=NO -DENABLE_VCARD=NO"
+EXTRA_OECMAKE += "-DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_INSTALL_LIBDIR=lib"
 
 INSANE_SKIP_${PN} += "dev-deps"
 
 PACKAGES += " ${PN}c ${PN}-common ${PN}-utils ${PN}-tester ${PN}-rings"
 
 FILES_${PN} += "${bindir}/linphone-daemon \
-		${bindir}/linphone-daemon-pipetest \
-		${libdir}/liblinphone.so.9.0.0 \
-		${libdir}/liblinphone.so.9 "
+		${bindir}/linphone-daemon-pipetest "
+#		${libdir}/liblinphone.so.9.0.0 \
+#		${libdir}/liblinphone.so.9 "
 
 FILES_${PN}-common = "${bindir}/lp-gen-wrappers \
 			${datadir}/pixmaps \
@@ -140,11 +141,4 @@ FILES_${PN}-dev += " \
     ${prefix}/share/Linphone "
 
 
-do_configure_prepend() {
-    #!/bin/sh
-    echo 'Deleting mediastreamer2 and oRTP'
-    rm -rf ${S}/mediastreamer2
-    rm -rf ${S}/oRTP
-    echo 'mediastreamer2 and oRTP have been removed'
-}
 

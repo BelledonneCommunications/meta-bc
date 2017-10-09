@@ -2,7 +2,7 @@ require sofia-sip.inc
 
 PR = "${INC_PR}.0"
 
-SRCREV = "a96cf7e458c8b62ed17f3673147df256dcb4a94d"
+SRCREV = "97c1824a4769c34add85e6ff306bf3aa34116c75"
 SRC_URI = "git://git.linphone.org/sofia-sip.git;nobranch=1"
 PV = "git_${SRCREV}"
 

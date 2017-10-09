@@ -9,6 +9,7 @@ DEPENDS = "bctoolbox libxml2 zlib polarssl-bc"
 PROVIDES = "libbzrtp"
 S = "${WORKDIR}/git"
 
-EXTRA_OECONF = " --prefix=${STAGING_DIR_HOST}${layout_exec_prefix}/usr"
+EXTRA_OECMAKE += " -DENABLE_STATIC=NO  -DENABLE_TESTS=OFF"
+EXTRA_OECMAKE += "-DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_INSTALL_LIBDIR=lib"
 
 inherit cmake

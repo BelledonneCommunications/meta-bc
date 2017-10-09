@@ -14,10 +14,11 @@ inherit  pkgconfig cmake gettext
 
 
 EXTRA_OECMAKE += " -DENABLE_STRICT=NO -DCMAKE_SKIP_INSTALL_RPATH=ON"
+EXTRA_OECMAKE += "-DJava_JAVA_EXECUTABLE=${JAVA_HOME}/bin/java"
+EXTRA_OECMAKE += "-DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_INSTALL_LIBDIR=lib"
 ANTLR_CFLAGS += " -I ${STAGING_DIR_HOST}/usr/include"
 ANTLR_LIBS += " -L ${STAGING_DIR_HOST}/usr/lib"
 CFLAGS += " ${ANTLR_CFLAGS} ${ANTLR_LIBS} -lantlr3c"
-
 
 INSANE_SKIP_${PN} += "dev-deps"
 
@@ -25,10 +26,8 @@ INSANE_SKIP_${PN} += "dev-deps"
 FILES_${PN}-dev = " \
     ${includedir} \
     ${libdir}/lib*.so \
-    ${libdir}/*.la \
-    ${libdir}/*.a \
-    ${libdir}/*.o \
     ${libdir}/pkgconfig \
+    ${libdir}/*.a \
     ${prefix}/share/BelleSIP"
 
 

@@ -1,11 +1,11 @@
-require mediastreamer2_2.15.1.inc
+require mediastreamer2.inc
 
 inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-SRCREV = "e715cc559f1c60710dae306426d1ade42420c517"
-SRC_URI = "git://git.linphone.org/mediastreamer2.git;branch=2.15.x"
+SRCREV = "1afe5d921a30b8dc2dffb8838e600b4bf97e623d"
+SRC_URI = "git://git.linphone.org/mediastreamer2.git"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
 
