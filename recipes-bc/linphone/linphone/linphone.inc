@@ -6,7 +6,7 @@ SECTION_linphonec =  "console/network"
 
 INC_PR = "r0"
 
-DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 libmswebrtc opus-bc libbctoolbox belr"
+DEPENDS = "libbellesip libortp libmediastreamer2 libxml2 libmswebrtc opus-bc libbctoolbox belr belcard"
 RDEPENDS_${PN} = "opus-bc "
 
 PROVIDES = "liblinphone linphonec"
@@ -15,17 +15,22 @@ S = "${WORKDIR}/git"
 
 inherit cmake gettext pythonnative
 
-PACKAGECONFIG ??= "sqlite zlib video"
+PACKAGECONFIG ??= "sqlite zlib video ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)}"
 PACKAGECONFIG[sqlite] = "-DENABLE_SQLITE_STORAGE=yes, -DENABLE_SQLITE_STORAGE=no, sqlite3"
 PACKAGECONFIG[zlib] = ", --disable-zlib, zlib"
 PACKAGECONFIG[video]= ",-DENABLE_VIDEO=NO"
 
-EXTRA_OECMAKE += " -DENABLE_CONSOLE_UI=NO -DENABLE_GTK_UI=NO -DCMAKE_SKIP_INSTALL_RPATH=ON -DENABLE_CXX_WRAPPER=NO -DENABLE_VCARD=NO"
+EXTRA_OECMAKE += " -DENABLE_CONSOLE_UI=NO -DENABLE_GTK_UI=NO -DCMAKE_SKIP_INSTALL_RPATH=ON -DENABLE_CXX_WRAPPER=NO -DENABLE_VCARD=ON"
 EXTRA_OECMAKE += "-DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_INSTALL_LIBDIR=lib"
+
+# Fix cross-compilation include directories cmake problem
+# Check Yocto version with DISTRO_VERSION variable to add or not the two following lines
+EXTRA_OECMAKE += "${@base_version_less_or_equal('DISTRO_VERSION', '2.0', '', ' -DCMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES=${STAGING_DIR}/${MACHINE}/usr/include', d)}"
+EXTRA_OECMAKE += "${@base_version_less_or_equal('DISTRO_VERSION', '2.0', '', ' -DCMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES=${STAGING_DIR}/${MACHINE}/usr/include', d)}"
 
 INSANE_SKIP_${PN} += "dev-deps"
 
-PACKAGES += " ${PN}c ${PN}-common ${PN}-utils ${PN}-tester ${PN}-rings"
+PACKAGES += " ${PN}c ${PN}-common ${PN}-tester ${PN}-utils ${PN}-rings"
 
 FILES_${PN} += "${bindir}/linphone-daemon \
 		${bindir}/linphone-daemon-pipetest "
@@ -47,7 +52,7 @@ FILES_${PN}-common = "${bindir}/lp-gen-wrappers \
 			${datadir}/icons"
   
 FILES_${PN}-utils = "${bindir}/lp-test-ecc \
-			${bindir}/lp-autoanswer \
+			${bindir}/lp-auto-answer \
 			${bindir}/xml2lpc_test \
 			${bindir}/lpc2xml_test \
 			${bindir}/lp-sendmsg \"
@@ -125,7 +130,11 @@ FILES_${PN}-tester ="${bindir}/liblinphone_tester \
 			${datadir}/liblinphone_tester/sipp/call_with_video_mline_before_audio_in_sdp.xml \
 			${datadir}/liblinphone_tester/sipp/sip_update_within_icoming_reinvite_with_no_sdp.xml \
 			${datadir}/liblinphone_tester/sipp/call_with_multiple_audio_mline_in_sdp.xml \
-			${datadir}/liblinphone_tester/sipp/call_invite_200ok_without_contact_header.xml"
+			${datadir}/liblinphone_tester/sipp/call_invite_200ok_without_contact_header.xml \
+			${datadir}/liblinphone_tester/local_tester_hosts \
+			${datadir}/liblinphone_tester/vcards \
+			${datadir}/liblinphone_tester/vcards/thousand_vcards.vcf \
+			${datadir}/liblinphone_tester/vcards/vcards.vcf"
 
 FILES_${PN}c = "${bindir}/linphonec \
 		${bindir}/linphonecsh \
@@ -133,7 +142,6 @@ FILES_${PN}c = "${bindir}/linphonec \
 		${datadir}/sounds/linphone/rings/oldphone-mono.wav"
 
 FILES_${PN}-rings = "${datadir}/sounds/linphone/rings"
-
 
 FILES_${PN}-dev += " \
     ${includedir} \

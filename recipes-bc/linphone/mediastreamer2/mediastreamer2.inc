@@ -34,7 +34,8 @@ FILES_${PN}-dev += " \
     ${libdir}/*.la \
     ${libdir}/*.a \
     ${libdir}/pkgconfig \
-    ${prefix}/share/Mediastreamer2 "
+    ${prefix}/share/Mediastreamer2 \
+    ${prefix}/share/mediastreamer2_tester"
 
 #inherit autotools pkgconfig gettext
 

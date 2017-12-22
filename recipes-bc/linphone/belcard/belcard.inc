@@ -16,5 +16,11 @@ FILES_${PN}-dev = " \
     ${includedir} \
     ${libdir}/lib*.so \
     ${libdir}/*.a \
-    ${prefix}/share/Belcard" 
+    ${prefix}/share/Belcard \
+    ${prefix}/share/belcard_tester \
+    ${prefix}/share/belcard_tester/vcards \
+    ${prefix}/share/belcard_tester/vcards/foldtest.vcf \
+    ${prefix}/share/belcard_tester/vcards/unfoldtest.vcf \
+    ${prefix}/share/belcard_tester/vcards/vcard.vcf \
+    ${prefix}/share/belcard_tester/vcards/vcards.vcf"
 

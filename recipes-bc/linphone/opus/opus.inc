@@ -23,11 +23,11 @@ EXTRA_OECONF = " \
 "
 
 python () {
-    if d.getVar('TARGET_FPU') in [ 'soft' ]:
+    if d.getVar('TARGET_FPU', True) in [ 'soft' ]:
         d.appendVar('PACKAGECONFIG', ' fixed-point')
 
     # Ne10 is only available for armv7 and aarch64
-    if any((t.startswith('armv7') or t.startswith('aarch64')) for t in d.getVar('TUNE_FEATURES').split()):
+    if any((t.startswith('armv7') or t.startswith('aarch64')) for t in d.getVar('TUNE_FEATURES', True).split()):
         d.appendVar('DEPENDS', ' ne10')
 }
 

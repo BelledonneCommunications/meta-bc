@@ -3,7 +3,8 @@ require bctoolbox.inc
 inherit gitpkgv
 
 PR = "${INC_PR}.0"
-SRCREV = "74918554d02e66e2fb1df0bbedcf7f19a7266584"
+SRCREV = "01285f4b49e4c06534058aa80dc6e9567cca9b16"
+#SRCREV = "74918554d02e66e2fb1df0bbedcf7f19a7266584"
 SRC_URI = "git://git.linphone.org/bctoolbox.git;commit=${SRCREV}"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"

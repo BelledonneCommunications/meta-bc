@@ -17,6 +17,6 @@ inherit cmake pkgconfig
 #}
 
 do_install_append() {
-	mkdir -p ${STAGING_DIR_HOST}/usr/share/java
-	cp ${S}/../../antlr-3.4-complete.jar ${STAGING_DIR_HOST}/usr/share/java/antlr.jar
+	mkdir -p ${STAGING_DIR_NATIVE}/usr/share/java
+	cp ${S}/../../antlr-3.4-complete.jar ${STAGING_DIR_NATIVE}/usr/share/java/antlr.jar
 }
