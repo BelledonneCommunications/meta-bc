@@ -134,7 +134,11 @@ FILES_${PN}-tester ="${bindir}/liblinphone_tester \
 			${datadir}/liblinphone_tester/local_tester_hosts \
 			${datadir}/liblinphone_tester/vcards \
 			${datadir}/liblinphone_tester/vcards/thousand_vcards.vcf \
-			${datadir}/liblinphone_tester/vcards/vcards.vcf"
+			${datadir}/liblinphone_tester/vcards/vcards.vcf \
+			${datadir}/liblinphone_tester/rcfiles/marie_zrtp_ecdh255_rc \
+			${datadir}/liblinphone_tester/rcfiles/marie_zrtp_ecdh448_rc \
+			${datadir}/liblinphone_tester/rcfiles/pauline_zrtp_ecdh225_rc \
+			${datadir}/liblinphone_tester/rcfiles/pauline_zrtp_ecdh448_rc"
 
 FILES_${PN}c = "${bindir}/linphonec \
 		${bindir}/linphonecsh \
