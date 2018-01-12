@@ -4,8 +4,20 @@ inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-SRCREV = "${AUTOREV}"
-#SRCREV = "ce584992480cf7463e9d0b8be3870d62ee43baaf"
+python () {
+    if d.getVar('LATEST_REVISIONS', True) == "1":
+        d.setVar('SRCREV', '${AUTOREV}')
+    else:
+        d.setVar('SRCREV', 'a858005cab82ff270eeb4104637abc52d10c1441')
+}
+
+# For visualisation
+python () {
+    print("")
+    print("linphone")
+    print(d.getVar('SRCREV', True))
+}
+
 #SRCREV = "7e2a6a56fa6a70a6ec3875cea26f1f1e17910917"
 SRC_URI = "git://git.linphone.org/linphone.git"
 PV = "git_${SRCREV}"

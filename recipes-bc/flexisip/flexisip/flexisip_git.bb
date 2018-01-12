@@ -4,7 +4,20 @@ inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-SRCREV = "dbfc16402db47558ef97090b302715e3556c15b2"
+python () {
+    if d.getVar('LATEST_REVISIONS', True) == "1":
+        d.setVar('SRCREV', '${AUTOREV}')
+    else:
+        d.setVar('SRCREV', '640cea0528fecef1c649c8b82575ed41b8976067')
+}
+
+# For visualisation
+python () {
+    print("")
+    print("flexisip")
+    print(d.getVar('SRCREV', True))
+}
+
 SRC_URI = "git://git.linphone.org/flexisip.git"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"

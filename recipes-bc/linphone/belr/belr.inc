@@ -16,5 +16,10 @@ FILES_${PN}-dev = " \
     ${includedir} \
     ${libdir}/lib*.so \
     ${libdir}/*.a \
-    ${prefix}/share/Belr" 
-
+    ${prefix}/share/Belr \
+    ${datadir}/belr-tester/res \
+    ${datadir}/belr-tester/res/sipgrammar.txt \
+    ${datadir}/belr-tester/res/response.txt \
+    ${datadir}/belr-tester/res/vcardgrammar.txt \
+    ${datadir}/belr-tester/res/basicgrammar.txt \
+    ${datadir}/belr-tester/res/register.txt"

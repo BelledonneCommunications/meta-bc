@@ -2,8 +2,20 @@ require bcunit.inc
 
 PR = "${INC_PR}.0"
 
-SRCREV = "d8d2f4b40209e06b400f893cce58e4c6ba73341d"
-#SRCREV = "6ce00eae4ca20ab284e17a88d8c7089bddb84ef0"
+python () {
+    if d.getVar('LATEST_REVISIONS', True) == "1":
+        d.setVar('SRCREV', '${AUTOREV}')
+    else:
+        d.setVar('SRCREV', 'd8d2f4b40209e06b400f893cce58e4c6ba73341d')
+}
+
+# For visualisation
+python () {
+    print("")
+    print("bcunit")
+    print(d.getVar('SRCREV', True))
+}
+
 SRC_URI = "git://git.linphone.org/bcunit.git;nobranch=1"
 PV = "git_${SRCREV}"
 

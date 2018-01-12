@@ -4,7 +4,20 @@ inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-SRCREV = "fdce52526089e88c98f19b0d36483cc3d31ef9bd"
+python () {
+    if d.getVar('LATEST_REVISIONS', True) == "1":
+        d.setVar('SRCREV', '${AUTOREV}')
+    else:
+        d.setVar('SRCREV', 'fdce52526089e88c98f19b0d36483cc3d31ef9bd')
+}
+
+# For visualisation
+python () {
+    print("")
+    print("belr")
+    print(d.getVar('SRCREV', True))
+}
+
 #SRCREV = "4f32b9c29c4ab8c4ccfc1e0899019a811d495054"
 SRC_URI = "git://git.linphone.org/belr.git"
 PV = "git_${SRCREV}"

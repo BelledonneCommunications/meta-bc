@@ -3,7 +3,22 @@ require bctoolbox.inc
 inherit gitpkgv
 
 PR = "${INC_PR}.0"
-SRCREV = "01285f4b49e4c06534058aa80dc6e9567cca9b16"
+
+python () {
+    if d.getVar('LATEST_REVISIONS', True) == "1":
+        d.setVar('SRCREV', '${AUTOREV}')
+    else:
+        d.setVar('SRCREV', '01285f4b49e4c06534058aa80dc6e9567cca9b16')
+}
+
+# For visualisation
+python () {
+    print("")
+    print("bctoolbox")
+    print(d.getVar('SRCREV', True))
+}
+
+#SRCREV = "01285f4b49e4c06534058aa80dc6e9567cca9b16"
 #SRCREV = "74918554d02e66e2fb1df0bbedcf7f19a7266584"
 SRC_URI = "git://git.linphone.org/bctoolbox.git;commit=${SRCREV}"
 PV = "git_${SRCREV}"
