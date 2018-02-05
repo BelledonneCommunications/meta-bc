@@ -13,7 +13,7 @@ EXTRA_OECONF += " --enable-shared"
 FILES_${PN} += "${datadir}/CUnit \
 		/usr/doc"
 
-inherit autotools pkgconfig
+inherit autotools pkgconfig remove-libtool
 
 do_autoreconf () {
     ./autogen.sh
