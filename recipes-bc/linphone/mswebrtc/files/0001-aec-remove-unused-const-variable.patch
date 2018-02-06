@@ -1,0 +1,31 @@
+From 6b055a91a2495838fa62f497e606b44011f9a1a0 Mon Sep 17 00:00:00 2001
+From: Pierre-Jean TEXIER <texier.pj2@gmail.com>
+Date: Tue, 6 Feb 2018 21:37:55 +0100
+Subject: [PATCH] aec: remove unused const variable
+
+Build fails with:
+
+Sec.c:38:20: error: 'smooth_factor' defined but not used [-Werror=unused-const-variable=]
+|  static const float smooth_factor = 0.05;
+|                    ^~~~~~~~~~~~~
+
+signed-off-by: Pierre-Jean TEXIER <texier.pj2@gmail.com>
+---
+ aec.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/aec.c b/aec.c
+index c1b29d9..d96dade 100644
+--- a/aec.c
++++ b/aec.c
+@@ -35,7 +35,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ 
+ #include "mediastreamer2/flowcontrol.h"
+ 
+-static const float smooth_factor = 0.05;
+ static const int framesize = 80;
+ static const int flow_control_interval_ms = 5000;
+ 
+-- 
+2.7.4
+

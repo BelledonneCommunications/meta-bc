@@ -6,6 +6,7 @@ SECTION = "libs/network"
 INC_PR = "r0"
 
 PROVIDES = "libortp"
+DEPENDS= "bctoolbox"
 S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig

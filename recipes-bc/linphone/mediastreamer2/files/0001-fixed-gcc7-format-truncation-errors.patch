@@ -1,0 +1,26 @@
+From b0d3928dde10c9633a6b5594e2658ccb56541251 Mon Sep 17 00:00:00 2001
+From: Pierre-Jean TEXIER <texier.pj2@gmail.com>
+Date: Tue, 6 Feb 2018 21:31:21 +0100
+Subject: [PATCH] fixed gcc7 format-truncation errors
+
+Signed-off-by: Pierre-Jean TEXIER <texier.pj2@gmail.com>
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index f57a455..1d29d41 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -115,7 +115,7 @@ if test "$GCC" != "yes" ; then
+ 		;;
+ 	esac
+ else
+-	CFLAGS="$CFLAGS -Wall -fdiagnostics-show-option"
++	CFLAGS="$CFLAGS -Wall -fdiagnostics-show-option -Wno-deprecated-declarations -Wno-format-truncation"
+ 	OBJCFLAGS="$OBJCFLAGS -Wall"
+ 	CXXFLAGS="$CXXFLAGS -Wall"
+ fi
+-- 
+2.7.4
+
