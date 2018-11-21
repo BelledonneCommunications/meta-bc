@@ -19,7 +19,7 @@ python () {
 }
 
 #SRCREV = "4f32b9c29c4ab8c4ccfc1e0899019a811d495054"
-SRC_URI = "git://git.linphone.org/belr.git"
+SRC_URI = "https://gitlab.linphone.org/BC/public/belr.git"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
 

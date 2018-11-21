@@ -17,7 +17,7 @@ python () {
 }
 
 #SRCREV = "6576402007f7c941355db6d2bee039f9f93d6cd5"
-SRC_URI = "git://git.linphone.org/msopenh264.git;protocol=git"
+SRC_URI = "https://gitlab.linphone.org/BC/public/msopenh264.git;protocol=git"
 
 S = "${WORKDIR}/git"
 

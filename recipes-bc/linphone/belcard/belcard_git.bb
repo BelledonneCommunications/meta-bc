@@ -18,7 +18,7 @@ python () {
     print(d.getVar('SRCREV', True))
 }
 
-SRC_URI = "git://git.linphone.org/belcard.git"
+SRC_URI = "https://gitlab.linphone.org/BC/public/belcard.git"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
 

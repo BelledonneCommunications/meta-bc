@@ -19,7 +19,7 @@ python () {
     print(d.getVar('SRCREV', True))
 }
 
-SRC_URI="git://gitosis@git.linphone.org/tunnel.git;protocol=ssh"
+SRC_URI="https://gitlab.linphone.org/BC/private/tunnel.git;protocol=ssh"
 PV = "git_${SRCREV}"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=9e80ca1f0c7e7714af7d4fcd401e9c45"

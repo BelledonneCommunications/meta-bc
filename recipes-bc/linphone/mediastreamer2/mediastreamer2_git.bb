@@ -22,7 +22,7 @@ python () {
 }
 
 #SRCREV = "1afe5d921a30b8dc2dffb8838e600b4bf97e623d"
-SRC_URI = "git://git.linphone.org/mediastreamer2.git"
+SRC_URI = "https://gitlab.linphone.org/BC/public/mediastreamer2.git"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
 
