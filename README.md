@@ -5,6 +5,7 @@ This layer provides support for linphone for use with :
 master : 	Stable linphone version for Yocto Fido and Morty.
 yocto-jethro : 	Stable linphone version for Yocto Jehtro.
 dev-fido :	Follows linphone development for Yocto Fido.
+yocto-sumo : Current stable linphone version for Yocto Sumo.
 
 This layer depends on the following layers:
 
@@ -66,3 +67,19 @@ $ opkg update
 $ opkg install linphone
 $ opkg install flexisip
 
+Build linphone-sdk using Docker
+-------------------------------
+
+Build the docker image:
+#docker build 
+
+If you want to build for a specific yocto version: 
+#docker build --build-arg YOCTO_VERSION=$VERSION
+
+If you want to build for a specific target machine you must:
+  - Edit docker/Dockerfile and add the git clone commands of the BSP and/or custom additional layers
+  - Edit docker/bblayers.conf to add the additional layers
+  - Edit docker/local.conf and edit MACHINE and other parameters to the value of your choice
+
+You can also change the default bitbake target to build directly an image or other component: 
+#docker build --build-arg BITBAKE_TARGET=core-image-minimal
