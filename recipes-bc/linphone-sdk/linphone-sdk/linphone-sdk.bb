@@ -8,7 +8,7 @@ python () {
     if d.getVar('LATEST_REVISIONS', True) == "1":
         d.setVar('SRCREV', '${AUTOREV}')
     else:
-        d.setVar('SRCREV', '99dd573449cd853adaa2aeff690673c783663401')
+        d.setVar('SRCREV', '2676368f3bcfae065b1a580331ce8dda7e68d8ea')
 # TODO set to 4.2 tag after merge of yocto-sumo branch
 }
 
