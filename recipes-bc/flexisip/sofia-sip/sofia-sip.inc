@@ -5,6 +5,8 @@ SECTION = "libs/network"
 
 INC_PR = "r0"
 
+PROVIDES = "sofia-sip"
+
 PN = "sofia-sip-ua-bc"
 DEPENDS = "openssl"
 PROVIDES = "libsofia-sip-ua-bc"
