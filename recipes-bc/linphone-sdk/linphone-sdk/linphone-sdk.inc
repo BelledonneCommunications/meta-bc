@@ -79,4 +79,4 @@ do_install_append () {
 }
 
 #Allow non-symlink .so files and static libraries in ${PN} package
-INSANE_SKIP_${PN} += "dev-so staticdev"
+INSANE_SKIP_${PN} += "dev-so staticdev already-stripped"
