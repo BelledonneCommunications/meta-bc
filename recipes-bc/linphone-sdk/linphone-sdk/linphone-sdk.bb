@@ -4,13 +4,7 @@ inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-python () {
-    if d.getVar('LATEST_REVISIONS', True) == "1":
-        d.setVar('SRCREV', '${AUTOREV}')
-    else:
-        d.setVar('SRCREV', '2676368f3bcfae065b1a580331ce8dda7e68d8ea')
-# TODO set to 4.2 tag after merge of yocto-sumo branch
-}
+SRCREV = '${oe.utils.conditional("LATEST_REVISIONS", "1", "${AUTOREV}", "19d98c41e5fcaa8d0d28e446413fd0a67f9196c3")}'
 
 # For visualisation
 python () {
@@ -19,7 +13,7 @@ python () {
     print(d.getVar('SRCREV', True))
 }
 
-SRC_URI = "gitsm://gitlab.linphone.org/BC/public/linphone-sdk.git;protocol=https;branch=yocto_sumo"
+SRC_URI = "gitsm://gitlab.linphone.org/BC/public/linphone-sdk.git;protocol=https;branch=yocto_sumo;rebaseable=1"
 
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
