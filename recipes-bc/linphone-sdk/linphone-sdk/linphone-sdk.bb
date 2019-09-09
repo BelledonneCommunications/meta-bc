@@ -4,7 +4,7 @@ inherit gitpkgv
 
 PR = "${INC_PR}.0"
 
-SRCREV = '${oe.utils.conditional("LATEST_REVISIONS", "1", "${AUTOREV}", "19d98c41e5fcaa8d0d28e446413fd0a67f9196c3")}'
+SRCREV = "${oe.utils.conditional('LATEST_REVISIONS', '1', '${AUTOREV}', '19d98c41e5fcaa8d0d28e446413fd0a67f9196c3')}"
 
 # For visualisation
 python () {
