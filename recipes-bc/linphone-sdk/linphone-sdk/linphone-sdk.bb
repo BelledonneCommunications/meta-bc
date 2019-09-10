@@ -5,12 +5,12 @@ inherit gitpkgv
 PR = "${INC_PR}.0"
 
 python () {
-    if d.getVar('LATEST_REVISIONS', True) == "1":
+    if os.getenv('LATEST_REVISIONS', '') == "1"
         d.setVar('SRCREV', '${AUTOREV}')
     else:
         d.setVar('SRCREV', '9663ba5f620955a54e4b3d42fce27bb387f26f90')
 }
-# TODO set SRCREV to 4.2 tag after merge of yocto-sumo branch
+# TODO set SRCREV to a fixed stable version after merge of yocto-sumo branch
 
 # For visualisation
 python () {
