@@ -55,9 +55,11 @@ RUN mkdir -p /home/build/poky/build
 
 RUN mkdir -p /home/build/poky/build/conf
 
-COPY local.conf /home/build/poky/build/conf/
+COPY --chown=build local.conf /home/build/poky/build/conf/
 
-COPY bblayers.conf /home/build/poky/build/conf/
+COPY --chown=build bblayers.conf /home/build/poky/build/conf/
+
+RUN chown -R build:build /home/build/poky/build
 
 #CMD "source oe-init-build-env && bitbake ${BITBAKE_TARGET}"
 
