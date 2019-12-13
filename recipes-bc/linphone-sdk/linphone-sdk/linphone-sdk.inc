@@ -57,6 +57,11 @@ EXTRA_OECMAKE += " -DCMAKE_EXE_LINKER_FLAGS='-Wl,-rpath-link=${BUILD_INSTALL_PAT
 EXTRA_OECMAKE += " -DCMAKE_SHARED_LINKER_FLAGS='-Wl,-rpath=${INSTALL_PATH}/lib -Wl,-rpath-link=${BUILD_INSTALL_PATH}/lib'"
 EXTRA_OECMAKE += " -DCMAKE_MODULE_LINKER_FLAGS='-Wl,-rpath=${INSTALL_PATH}/lib -Wl,-rpath-link=${BUILD_INSTALL_PATH}/lib'"
 
+#Apply default linker flags provided by Yocto.
+#This avoids 'No GNU_HASH in the elf binary' error as documented
+#in https://www.yoctoproject.org/docs/2.0.1/ref-manual/ref-manual.html#qa-issue-ldflags .
+TARGET_CC_ARCH += "${LDFLAGS}"
+
 PACKAGES = "${PN} ${PN}-dev ${PN}-dbg"
 
 FILES_${PN} += "${INSTALL_PATH}/bin/*"
