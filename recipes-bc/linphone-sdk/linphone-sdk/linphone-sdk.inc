@@ -6,7 +6,7 @@ SECTION_linphonec =  "console/network"
 
 INC_PR = "r0"
 
-DEPENDS = "git-native doxygen-native python-pystache-native python-six-native mariadb pulseaudio alsa-lib virtual/gettext sqlite3 mariadb zlib perl-native"
+DEPENDS = "git-native doxygen-native python3-native python3-pystache-native python3-six-native mariadb pulseaudio alsa-lib virtual/gettext sqlite3 mariadb zlib perl-native"
 
 PROVIDES = "linphone-sdk"
 
@@ -17,7 +17,7 @@ RPROVIDES_${PN} = "bcunit bctoolbox belle-sip belr belcard \
 
 S = "${WORKDIR}/git"
 
-inherit cmakebuilder gettext pythonnative pkgconfig chrpath perlnative
+inherit cmakebuilder gettext python3native pkgconfig chrpath perlnative
 
 PACKAGECONFIG ??= "sqlite zlib bzrtp ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'video', '', d)}"
 PACKAGECONFIG[sqlite] = "-DENABLE_SQLITE_STORAGE=yes, -DENABLE_SQLITE_STORAGE=no"
