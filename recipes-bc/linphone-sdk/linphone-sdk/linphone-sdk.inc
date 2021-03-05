@@ -6,7 +6,7 @@ SECTION_linphonec =  "console/network"
 
 INC_PR = "r0"
 
-DEPENDS = "git-native doxygen-native python3-native python3-pystache-native python3-six-native mariadb pulseaudio alsa-lib virtual/gettext sqlite3 mariadb zlib perl-native"
+DEPENDS = "git-native doxygen-native mariadb pulseaudio alsa-lib virtual/gettext sqlite3 mariadb zlib perl-native ${VERSION_DEPENDENT_DEPENDS}"
 
 PROVIDES = "linphone-sdk"
 
@@ -17,7 +17,31 @@ RPROVIDES_${PN} = "bcunit bctoolbox belle-sip belr belcard \
 
 S = "${WORKDIR}/git"
 
-inherit cmakebuilder gettext python3native pkgconfig chrpath perlnative
+inherit cmakebuilder gettext pkgconfig chrpath perlnative ${VERSION_DEPENDENT_INHERIT}
+
+python () {
+# 3 possible revisions:
+# - if env[LATEST_REVISIONS] is set, use yocto autorev mecanism
+# - if env[LINPHONE_SDK_REV] is defined, use the value as the revision (useful for continous integration)
+# - Otherwise, use fixed stable revision
+
+    if os.getenv('LATEST_REVISIONS', '') == "1":
+        d.setVar('SRCREV', "${AUTOREV}")
+    else:
+        d.setVar('SRCREV', os.getenv('LINPHONE_SDK_REV', 'e2047d1806c38374fff387f4bbed9c4fbfd15104')) # 4.4.0 if not set
+    
+    d.setVar('LINPHONE_SDK_BRANCH', os.getenv('LINPHONE_SDK_BRANCH', 'master'))
+}
+
+# For visualisation
+python () {
+    print("")
+    print("linphone-sdk")
+    print(d.getVar('SRCREV', True))
+}
+
+SRC_URI = "gitsm://gitlab.linphone.org/BC/public/linphone-sdk.git;protocol=https;branch=${LINPHONE_SDK_BRANCH};"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ff3103b5db8ba4e2c66c511b7a73e407"
 
 PACKAGECONFIG ??= "sqlite zlib bzrtp ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'video', '', d)}"
 PACKAGECONFIG[sqlite] = "-DENABLE_SQLITE_STORAGE=yes, -DENABLE_SQLITE_STORAGE=no"
@@ -85,3 +109,4 @@ do_install_append () {
 
 #Allow non-symlink .so files and static libraries in ${PN} package
 INSANE_SKIP_${PN} += "dev-so staticdev already-stripped"
+
