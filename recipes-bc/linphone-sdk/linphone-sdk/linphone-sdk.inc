@@ -28,7 +28,7 @@ python () {
     if os.getenv('LATEST_REVISIONS', '') == "1":
         d.setVar('SRCREV', "${AUTOREV}")
     else:
-        d.setVar('SRCREV', os.getenv('LINPHONE_SDK_REV', 'e2047d1806c38374fff387f4bbed9c4fbfd15104')) # 4.4.0 if not set
+        d.setVar('SRCREV', os.getenv('LINPHONE_SDK_REV', "${DEFAULT_COMMIT}"))
     
     d.setVar('LINPHONE_SDK_BRANCH', os.getenv('LINPHONE_SDK_BRANCH', 'master'))
 }

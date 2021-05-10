@@ -2,6 +2,9 @@
 VERSION_DEPENDENT_DEPENDS="python3-native python3-pystache-native python3-six-native"
 VERSION_DEPENDENT_INHERIT="python3native"
 
+# The default commit sha used if LINPHONE_SDK_REV is not set and LATEST_REVISIONS disabled
+DEFAULT_COMMIT="0ddfcfdf6f61aec999330f3b689ffdac3677b500" # 4.5.14
+
 require linphone-sdk.inc
 
 inherit gitpkgv
