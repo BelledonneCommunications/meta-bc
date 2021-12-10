@@ -16,7 +16,7 @@ inherit cmake pkgconfig
 #	./autogen.sh
 #}
 
-do_install_append() {
+do_install:append() {
 	mkdir -p ${STAGING_DIR_NATIVE}/usr/share/java
 	cp ${S}/../../antlr-3.4-complete.jar ${STAGING_DIR_NATIVE}/usr/share/java/antlr.jar
 }

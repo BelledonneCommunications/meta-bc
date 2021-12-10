@@ -19,6 +19,6 @@ SRC_URI = "https://gitlab.linphone.org/BC/public/msamr.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
-OVERRIDES_append = ":wideband"
+OVERRIDES:append = ":wideband"
 
 require msamr-common.inc

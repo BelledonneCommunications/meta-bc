@@ -6,8 +6,8 @@ PR = "${INC_PR}.0"
 S = "${WORKDIR}/git"
 
 
-SRCREV = "0f8822b5326c76bb9dc4c6b552631f51792c3982"
-SRC_URI = "https://gitlab.linphone.org/BC/public/external/gsm.git;branch=linphone"
+SRCREV = "5b603ccf4620d76c9e642ca8c4560e3c43650017"
+SRC_URI = "git://gitlab.linphone.org/BC/public/external/gsm.git;protocol=https;branch=linphone"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
 

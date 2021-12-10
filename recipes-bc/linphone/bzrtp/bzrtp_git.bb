@@ -18,8 +18,8 @@ python () {
     print(d.getVar('SRCREV', True))
 }
 
-#SRCREV = "37adaa0536432149a51332d8eb04973a3ba6bac9"
-SRC_URI = "https://gitlab.linphone.org/BC/public/bzrtp.git"
+#SRCREV = "8fc9c7cdc6a73e3502ce8ce663d53922dc284284"
+SRC_URI = "git://gitlab.linphone.org/BC/public/bzrtp.git;protocol=https"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
 

@@ -12,7 +12,9 @@ S = "${WORKDIR}/git"
 
 inherit cmake
 
-FILES_${PN}-dev = " \
+CFLAGS += "-Wno-stringop-truncation"
+
+FILES:${PN}-dev = " \
     ${includedir} \
     ${libdir}/lib*.so \
     ${libdir}/*.la \

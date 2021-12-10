@@ -18,10 +18,11 @@ python () {
     print(d.getVar('SRCREV', True))
 }
 
-#SRCREV = "01285f4b49e4c06534058aa80dc6e9567cca9b16"
-#SRCREV = "74918554d02e66e2fb1df0bbedcf7f19a7266584"
-SRC_URI = "https://gitlab.linphone.org/BC/public/bctoolbox.git;commit=${SRCREV}"
+
+#SRCREV = "d92d04f92bc66528e1e5a337c0de917950592683"
+SRC_URI = "git://gitlab.linphone.org/BC/public/bctoolbox.git;protocol=https"
 PV = "git_${SRCREV}"
 PKGV = "${GITPKGVTAG}"
+
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=9f9938e31db89d55a796e86808c96848;rev={SRCREV}"

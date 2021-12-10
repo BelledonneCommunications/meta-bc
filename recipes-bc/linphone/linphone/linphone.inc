@@ -26,8 +26,8 @@ EXTRA_OECMAKE += "-DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_INSTALL_LIBDIR=lib"
 
 # Fix cross-compilation include directories cmake problem
 # Check Yocto version with DISTRO_VERSION variable to add or not the two following lines
-EXTRA_OECMAKE += "${@base_version_less_or_equal('DISTRO_VERSION', '2.0', '', ' -DCMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES=${STAGING_DIR}/${MACHINE}/usr/include', d)}"
-EXTRA_OECMAKE += "${@base_version_less_or_equal('DISTRO_VERSION', '2.0', '', ' -DCMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES=${STAGING_DIR}/${MACHINE}/usr/include', d)}"
+EXTRA_OECMAKE += "${@oe.utils.version_less_or_equal('DISTRO_VERSION', '2.0', '', ' -DCMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES=${STAGING_DIR}/${MACHINE}/usr/include', d)}"
+EXTRA_OECMAKE += "${@oe.utils.version_less_or_equal('DISTRO_VERSION', '2.0', '', ' -DCMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES=${STAGING_DIR}/${MACHINE}/usr/include', d)}"
 
 INSANE_SKIP_${PN} += "dev-deps"
 
