@@ -20,15 +20,15 @@ PACKAGECONFIG[x11] = " -DENABLE_X11=YES -DENABLE_XV=YES,  -DENABLE_X11=NO -DENAB
 
 inherit  cmake lib_package pkgconfig pythonnative 
 EXTRA_OECMAKE += " -DCMAKE_SKIP_INSTALL_RPATH=ON -DENABLE_GLX=ON -DENABLE_GL=NO -DENABLE_GLX_DEFAULT_VALUE=NO -DENABLE_PCAP=NO -DENABLE_BV16=NO -DENABLE_DOC=NO"
-EXTRA_OECMAKE += "-DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_INSTALL_LIBDIR=lib"
+EXTRA_OECMAKE += "-DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_INSTALL_LIBDIR=lib -DENABLE_UNIT_TESTS=NO"
 
-
+CFLAGS += "-Wno-type-limits -Wno-stringop-truncation -Wno-cast-function-type"
 #PACKAGES += "${PN}-bin"
 
 #FILES_${PN}-bin = "${bindir}/mediastream ${bindir}/msaudiocmp"
-FILES_${PN} += " ${libdir}/mediastreamer/plugins ${datadir}/images/nowebcamCIF.jpg"
+FILES:${PN} += " ${libdir}/mediastreamer/plugins ${datadir}/images/nowebcamCIF.jpg"
 
-FILES_${PN}-dev += " \
+FILES:${PN}-dev += " \
     ${includedir} \
     ${libdir}/lib*.so \
     ${libdir}/*.la \

@@ -1,7 +1,7 @@
 require speex-bc_1.2rc1.inc
 
 PR = "r1"
-SRC_URI = "https://gitlab.linphone.org/BC/public/external/speex.git;branch=linphone;protocol=git"
+SRC_URI = "git://gitlab.linphone.org/BC/public/external/speex.git;branch=linphone;protocol=git"
 
 SRCREV = "fc1dd43c3c9d244bca1c300e408ce0373dbd5ed8"
 

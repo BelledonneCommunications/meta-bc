@@ -10,9 +10,10 @@ PROVIDES = "bcunit"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE += " -DENABLE_SHARED=ON "
-FILES_${PN} += "${datadir}/BCUnit \
+FILES:${PN} += "${datadir}/BCUnit \
 		${datadir}/BCunit \
 		/usr/doc"
+
 
 inherit cmake pkgconfig
 

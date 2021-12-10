@@ -16,7 +16,8 @@ python () {
     print(d.getVar('SRCREV', True))
 }
 
-SRC_URI = "https://gitlab.linphone.org/BC/public/bcunit.git;nobranch=1"
+SRC_URI = "git://gitlab.linphone.org/BC/public/bcunit.git;nobranch=1;protocol=https"
 PV = "git_${SRCREV}"
+SRC_URI[sha256sum] = "8e13f47f9482251540ff4ca5c0526d95939b6798518c91e3fa90a4986e6af9fd"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=fbb9c6cedd181f6aff9467f29667a660"

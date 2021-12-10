@@ -5,7 +5,7 @@ DEPENDS = "tiff"
 S = "${WORKDIR}/spandsp-0.0.6"
 
 # *cough*
-do_configure_append() {
+do_configure:append() {
       rm config.log
 }
 
