@@ -1,5 +1,4 @@
 DESCRIPTION = "WIP LINPHONE-SDK Audio/video SIP-based IP phone (console edition)"
-LICENSE = "GPLv2"
 HOMEPAGE = "http://www.linphone.org/technical-corner/linphone/overview"
 SECTION = "network"
 SECTION_linphonec =  "console/network"
@@ -11,9 +10,9 @@ DEPENDS = "git-native doxygen-native mariadb pulseaudio alsa-lib virtual/gettext
 PROVIDES = "linphone-sdk"
 
 RPROVIDES_${PN} = "bcunit bctoolbox belle-sip belr belcard \
-	    ortp mediastreamer2 bcg729 bzrtp lime \
-	    mswebrtc speex speexdsp \
-	    liblinphone linphonec"
+      ortp mediastreamer2 bcg729 bzrtp lime \
+      mswebrtc speex speexdsp \
+      liblinphone linphonec"
 
 S = "${WORKDIR}/git"
 
@@ -29,7 +28,7 @@ python () {
         d.setVar('SRCREV', "${AUTOREV}")
     else:
         d.setVar('SRCREV', os.getenv('LINPHONE_SDK_REV', "${DEFAULT_COMMIT}"))
-    
+
     d.setVar('LINPHONE_SDK_BRANCH', os.getenv('LINPHONE_SDK_BRANCH', 'master'))
 }
 
@@ -41,7 +40,16 @@ python () {
 }
 
 SRC_URI = "gitsm://gitlab.linphone.org/BC/public/linphone-sdk.git;protocol=https;branch=${LINPHONE_SDK_BRANCH};"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=ff3103b5db8ba4e2c66c511b7a73e407"
+
+python () {
+    bb.note("LINPHONE_SDK_LIC_FILES_CHKSUM=" + os.getenv("LINPHONE_SDK_LIC_FILES_CHKSUM", ''))
+    if os.getenv("LINPHONE_SDK_LIC_FILES_CHKSUM", '') != '':
+      d.setVar("LIC_FILES_CHKSUM_ENV", os.getenv("LINPHONE_SDK_LIC_FILES_CHKSUM"))
+    else:
+      d.setVar("LIC_FILES_CHKSUM_ENV", "ff3103b5db8ba4e2c66c511b7a73e407")
+}
+#Bitbakes throws parse errors when we try to set license dynamically, so we only set LIC_FILES_CHKSUM (check .bb files to see which values to set)
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=${LIC_FILES_CHKSUM_ENV}"
 
 PACKAGECONFIG ??= "sqlite zlib bzrtp ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'video', '', d)}"
 PACKAGECONFIG[sqlite] = "-DENABLE_SQLITE_STORAGE=yes, -DENABLE_SQLITE_STORAGE=no"
@@ -96,17 +104,16 @@ FILES_${PN}-dev = "${INSTALL_PATH}/include/*"
 SYSROOT_DIRS += "/opt"
 
 do_install_append () {
-	#Do not include generated and installed cmake/pkgconfig files to the target package
-	rm -rf "${BUILD_INSTALL_PATH}/cmake"
-	rm -rf "${BUILD_INSTALL_PATH}/lib/pkgconfig"
+  #Do not include generated and installed cmake/pkgconfig files to the target package
+  rm -rf "${BUILD_INSTALL_PATH}/cmake"
+  rm -rf "${BUILD_INSTALL_PATH}/lib/pkgconfig"
 
-	install -m 0755 -d ${D}${INSTALL_PATH}/bin ${D}${INSTALL_PATH}/lib ${D}${INSTALL_PATH}/include ${D}${INSTALL_PATH}/share
-	cp -r ${BUILD_INSTALL_PATH}/bin/* ${D}${INSTALL_PATH}/bin
-	cp -r ${BUILD_INSTALL_PATH}/lib/* ${D}${INSTALL_PATH}/lib
-	cp -r ${BUILD_INSTALL_PATH}/share/* ${D}${INSTALL_PATH}/share
-	cp -r ${BUILD_INSTALL_PATH}/include/* ${D}${INSTALL_PATH}/include
+  install -m 0755 -d ${D}${INSTALL_PATH}/bin ${D}${INSTALL_PATH}/lib ${D}${INSTALL_PATH}/include ${D}${INSTALL_PATH}/share
+  cp -r ${BUILD_INSTALL_PATH}/bin/* ${D}${INSTALL_PATH}/bin
+  cp -r ${BUILD_INSTALL_PATH}/lib/* ${D}${INSTALL_PATH}/lib
+  cp -r ${BUILD_INSTALL_PATH}/share/* ${D}${INSTALL_PATH}/share
+  cp -r ${BUILD_INSTALL_PATH}/include/* ${D}${INSTALL_PATH}/include
 }
 
 #Allow non-symlink .so files and static libraries in ${PN} package
 INSANE_SKIP_${PN} += "dev-so staticdev already-stripped"
-

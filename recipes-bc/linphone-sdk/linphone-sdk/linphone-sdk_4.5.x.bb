@@ -8,9 +8,11 @@ DEFAULT_COMMIT="0ddfcfdf6f61aec999330f3b689ffdac3677b500"
 
 require linphone-sdk.inc
 
+#GPLv2 or later
+LICENSE = "GPLv2+"
+
 inherit gitpkgv
 
 PR = "${INC_PR}.0"
 PV = "4.5.x"
 PKGV = "${GITPKGVTAG}"
-
